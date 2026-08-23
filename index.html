@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SSING BUILD CODES SAS | Ingeniería Estructural y Desarrollo</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <h1>SS<span>ING</span> BU<span>ILD</span> CO<span>DES</span> S<span>A</span>S</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="https://front-ing.vercel.app/dashboard" target="_blank" class="btn-nav-software">Software de Cálculo</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#contacto" class="btn-nav">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección Hero (Fondo Principal Modificable) -->
+    <header id="inicio" class="hero" style="background: linear-gradient(rgba(15, 32, 39, 0.8), rgba(32, 58, 67, 0.85)), url('img/fondo-hero.jpg') no-repeat center center/cover;">
+        <div class="hero-content">
+            <h2>INNOVACIÓN ESTRUCTURAL & CÓDIGO</h2>
+            <p>Soluciones integrales que unen el diseño de ingeniería civil con la potencia del desarrollo de software automatizado.</p>
+            <a href="#servicios" class="btn-primary">Descubrir más</a>
+        </div>
+    </header>
+
+    <!-- Sección Servicios (Carrusel con Tarjetas Giratorias) -->
+    <section id="servicios" class="services">
+        <div class="section-title">
+            <h2>Nuestros Servicios</h2>
+            <p>Desliza y haz clic en cualquier tarjeta para explorar nuestra propuesta técnica detallada.</p>
+        </div>
+
+        <div class="carousel-container">
+            <div class="carousel-track">
+                
+                <!-- Servicio 1 -->
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-inner">
+                        <div class="card-front" style="background-image: linear-gradient(rgba(15, 32, 39, 0.75), rgba(32, 58, 67, 0.85)), url('img/imagen1.jpg');">
+                            <div class="card-overlay">
+                                <div class="icon"><i class="fa-solid fa-building"></i></div>
+                                <h3>Diseño y Análisis Estructural BIM</h3>
+                                <p>Modelado avanzado de estructuras bajo normativas vigentes (NSR-10, ACI 318, AISC).</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Ingeniería de Alto Rendimiento</h3>
+                            <p>Desarrollamos análisis sísmicos y estáticos avanzados utilizando software líder en la industria como ETABS y MIDAS Gen NX. Garantizamos la optimización de secciones, cumplimiento estricto de códigos sismorresistentes y máxima seguridad estructural.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-inner">
+                        <div class="card-front" style="background-image: linear-gradient(rgba(15, 32, 39, 0.75), rgba(32, 58, 67, 0.85)), url('img/imagen2.jpg');">
+                            <div class="card-overlay">
+                                <div class="icon"><i class="fa-solid fa-code"></i></div>
+                                <h3>Desarrollo de Software de Cálculo</h3>
+                                <p>Creación de herramientas a medida para automatizar procesos y cálculos de ingeniería.</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Automatización Inteligente</h3>
+                            <p>Diseñamos y programamos scripts y aplicaciones personalizadas con interfaces intuitivas usando Python, Tkinter y JavaScript. Reducimos el tiempo en iteraciones repetitivas y potenciamos la eficiencia operativa.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-inner">
+                        <div class="card-front" style="background-image: linear-gradient(rgba(15, 32, 39, 0.75), rgba(32, 58, 67, 0.85)), url('img/imagen3.jpg');">
+                            <div class="card-overlay">
+                                <div class="icon"><i class="fa-solid fa-laptop-code"></i></div>
+                                <h3>Modelado arquitectónico y renders 3D</h3>
+                                <p>Desarrollo de modelos arquitectónicos BIM 3D para visualizar, documentar y coordinar proyectos de ingeniería.</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Visualización Arquitectónica 3D</h3>
+                            <p>Desarrollo de modelos y escenas tridimensionales mediante software  de diseño arquitectónico, creando representaciones fotorrealistas y de alto nivel de detalle que permiten visualizar de manera clara y realista la propuesta antes de su ejecución. </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-inner">
+                        <div class="card-front" style="background-image: linear-gradient(rgba(15, 32, 39, 0.75), rgba(32, 58, 67, 0.85)), url('img/imagen4.jpg');">
+                            <div class="card-overlay">
+                                <div class="icon"><i class="fa-solid fa-satellite"></i></div>
+                                <h3>Fotogrametría y Levantamientos con Drones</h3>
+                                <p>Captura aérea de alta precisión para generar información geoespacial, modelos 3D y levantamientos detallados de proyectos y terrenos.</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Levantamientos Fotogramétricos Aéreos</h3>
+                            <p> Levantamientos mediante drones fotogramétrica, obteniendo imágenes aéreas de alta resolución que son procesadas para generar información precisa y detallada del terreno y las estructuras existentes. A partir de estos datos podemos desarrollar ortomosaicos, modelos digitales de superficie, nubes de puntos, curvas de nivel y modelos 3D.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 5 -->
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-inner">
+                        <div class="card-front" style="background-image: linear-gradient(rgba(15, 32, 39, 0.75), rgba(32, 58, 67, 0.85)), url('img/imagen5.jpg');">
+                            <div class="card-overlay">
+                                <div class="icon"><i class="fa-solid fa-helmet-safety"></i></div>
+                                <h3>Gestión y Ejecución de Obras</h3>
+                                <p>Planificación, coordinación y supervisión de proyectos constructivos, garantizando calidad, eficiencia y cumplimiento de los objetivos del proyecto.</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Gestión y Desarrollo de Proyectos Constructivos</h3>
+                            <p>Desarrollo y ejecución de proyectos constructivos con enfoque en calidad, planificación y eficiencia, coordinando recursos, personal y especialidades para garantizar que cada etapa de la obra se ejecute de acuerdo con el diseño y las especificaciones técnicas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 6 -->
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-inner">
+                        <div class="card-front" style="background-image: linear-gradient(rgba(15, 32, 39, 0.75), rgba(32, 58, 67, 0.85)), url('img/imagen6.jpg');">
+                            <div class="card-overlay">
+                                <div class="icon"><i class="fa-solid fa-earth-americas"></i></div>
+                                <h3>Estudios Geotécnicos y de Suelos</h3>
+                                <p>Análisis de las condiciones del terreno para determinar sus características y proporcionar parámetros confiables para el diseño y construcción de proyectos.</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Estabilidad Geotécnica</h3>
+                            <p>Evaluamos las propiedades y condiciones del suelo mediante estudios geotécnicos orientados a conocer su comportamiento y capacidad para soportar las estructuras proyectadas. Los resultados permiten establecer parámetros fundamentales para el diseño de cimentaciones, movimientos de tierra y soluciones constructivas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 7 -->
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-inner">
+                        <div class="card-front" style="background-image: linear-gradient(rgba(15, 32, 39, 0.75), rgba(32, 58, 67, 0.85)), url('img/imagen7.jpg');">
+                            <div class="card-overlay">
+                                <div class="icon"><i class="fa-solid fa-cubes"></i></div>
+                                <h3>Modelado BIM</h3>
+                                <p>Integración de información digital paramétrica para una coordinación eficiente de proyectos.</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Coordinación Tridimensional</h3>
+                            <p>Implementamos flujos de trabajo BIM para centralizar geometría y propiedades de elementos constructivos, evitando interferencias en obra entre estructura e instalaciones.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 8 -->
+                <div class="service-card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-inner">
+                        <div class="card-front" style="background-image: linear-gradient(rgba(15, 32, 39, 0.75), rgba(32, 58, 67, 0.85)), url('img/imagen8.jpg');">
+                            <div class="card-overlay">
+                                <div class="icon"><i class="fa-solid fa-helmet-safety"></i></div>
+                                <h3>Interventoría de Obras</h3>
+                                <p>Supervisión técnica, administrativa y de control de calidad en campo .</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Control y Rigor en Obra</h3>
+                            <p>Ejercemos veeduría y supervisión integral durante la ejecución de obras civiles, asegurando el cumplimiento estricto de planos constructivos y buenas prácticas de seguridad con personal capacitado .</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contacto -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>SSING BUILD CODES SAS</h3>
+                <p>Dirigido por ING.  Jose Carlos Torres .</p>
+                <p>Construyendo el futuro con datos y estructuras seguras.</p>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contáctanos</h4>
+                <div class="contact-links">
+                    <a href="mailto:torrescastro738@gmail.com" class="contact-item email">
+                        <i class="fa-solid fa-envelope"></i> Enviar Correo
+                    </a>
+                    <a href="https://wa.me/573116619341" target="_blank" class="contact-item whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i> Whatsapp
+                    </a>
+                    <a href="https://www.instagram.com/ss_ingenieriasas/" target="_blank" class="contact-item instagram">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://front-ing.vercel.app/dashboard" target="_blank" class="contact-item software">
+                        <i class="fa-solid fa-calculator"></i> Software de Cálculo
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SSING BUIILD CODES SAS. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante del Logo -->
+    <a href="#inicio" class="floating-logo-btn" title="Volver al inicio">
+        <img src="img/logo.png" alt="Logo Empresa">
+    </a>
+
+</body>
+</html>
