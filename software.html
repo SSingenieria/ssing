@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalculosSSING | Solicitar prueba o licencia</title>
+    <meta name="description" content="Solicite su prueba gratis o licencia de CalculosSSING, el software de memorias de cálculo estructural bajo NSR-10 y ACI 318.">
+    <meta name="theme-color" content="#070d12">
+    <link rel="icon" href="img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+
+    <nav class="navbar solid">
+        <div class="container">
+            <a href="index.html" class="brand">
+                <img src="img/logo.png" alt="Logo SSING">
+                <span class="brand-name">SS<span>ING</span> BUILD CODES<small>INGENIERÍA · SOFTWARE</small></span>
+            </a>
+            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="#solicitud" class="nav-software active"><i class="fa-solid fa-calculator"></i> CalculosSSING</a></li>
+                <li><a href="index.html#contacto" class="nav-cta">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-hero" style="padding-bottom: 50px;">
+        <div class="hero-bg" style="background-image:url('img/imagen2.jpg')"></div>
+        <div class="container">
+            <div class="breadcrumb"><a href="index.html">Inicio</a> / Software de Cálculo</div>
+            <span class="eyebrow">Software de cálculo estructural</span>
+            <h1>CalculosSSING</h1>
+            <p class="lead">Memorias de cálculo de cimentaciones, vigas, losas, escaleras y más, paso a paso con la NSR-10 y el ACI 318. Vea cómo funciona y solicite su prueba gratis o su licencia.</p>
+        </div>
+    </header>
+
+    <section class="section" id="solicitud" style="padding-top: 60px;">
+        <div class="container sw-layout">
+
+            <!-- Video (archivo video/demo.mp4) -->
+            <div class="sw-video">
+                <div class="video-frame" id="video-frame">
+                    <video id="video" controls playsinline preload="metadata" poster="video/portada.jpg">
+                        <source src="video/demo.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-empty">
+                        <i class="fa-solid fa-circle-play"></i>
+                        <strong style="color:var(--text)">Video de demostración</strong>
+                        <span>Muy pronto podrá ver aquí cómo funciona CalculosSSING.</span>
+                    </div>
+                </div>
+                <p class="mono" style="color:var(--muted); font-size:.78rem; margin-top:12px;">Así se ve el programa: datos de entrada, verificación normativa y reporte final.</p>
+            </div>
+
+            <!-- Características y pasos -->
+            <div class="sw-info">
+                <div class="sw-features">
+                    <div><i class="fa-solid fa-layer-group"></i><span>Zapatas, vigas, losas, escaleras, muros y más elementos</span></div>
+                    <div><i class="fa-solid fa-book"></i><span>Cada fórmula con su numeral de la NSR-10 / ACI 318</span></div>
+                    <div><i class="fa-solid fa-file-word"></i><span>Reporte de memoria de cálculo en Word</span></div>
+                    <div><i class="fa-solid fa-compass-drafting"></i><span>Planos de despiece en DXF</span></div>
+                    <div><i class="fa-solid fa-floppy-disk"></i><span>Proyectos guardados en su computador</span></div>
+                    <div><i class="fa-solid fa-rotate"></i><span>Actualizaciones y soporte directo</span></div>
+                </div>
+
+                <div class="section-head" style="margin: 50px 0 20px;"><span class="eyebrow">Cómo obtenerlo</span></div>
+                <div class="process" style="grid-template-columns: 1fr;">
+                    <div class="step" style="border-right:0; border-bottom:1px solid var(--line);"><span class="n">01</span><h4>Llene la solicitud</h4><p>Elija prueba gratis o licencia completa y envíela por WhatsApp o correo.</p></div>
+                    <div class="step" style="border-right:0; border-bottom:1px solid var(--line);"><span class="n">02</span><h4>Reciba el programa</h4><p>Le enviamos el instalador. Al abrirlo verá el código de su equipo.</p></div>
+                    <div class="step" style="border-right:0;"><span class="n">03</span><h4>Active su licencia</h4><p>Le respondemos con su código de licencia, usuario y clave.</p></div>
+                </div>
+            </div>
+
+            <!-- Formulario de solicitud (mismos datos que pide el programa) -->
+            <form class="form-card" id="form" novalidate>
+                <h2>Solicitar prueba o licencia</h2>
+                <p>Llene sus datos y envíenos la solicitud. Le responderemos con su código de licencia, su usuario y su clave.</p>
+
+                <div class="tipo-switch" role="radiogroup" aria-label="¿Qué solicita?">
+                    <input type="radio" name="tipo" id="t-prueba" value="Prueba gratis (7, 15 o 30 días, la autoriza SSING Build Code SAS)" checked>
+                    <label for="t-prueba"><i class="fa-solid fa-flask"></i> Prueba gratis</label>
+                    <input type="radio" name="tipo" id="t-licencia" value="Licencia completa">
+                    <label for="t-licencia"><i class="fa-solid fa-key"></i> Licencia completa</label>
+                </div>
+
+                <div class="form-grid">
+                    <div class="field full"><label for="nombre">Nombre completo <b>*</b></label><input id="nombre" autocomplete="name" placeholder="Ej. Juan Pérez"></div>
+                    <div class="field"><label for="documento">Cédula o NIT</label><input id="documento" placeholder="Opcional"></div>
+                    <div class="field"><label for="telefono">Teléfono / WhatsApp <b>*</b></label><input id="telefono" type="tel" autocomplete="tel" placeholder="Ej. 300 123 4567"></div>
+                    <div class="field full"><label for="correo">Correo <b>*</b></label><input id="correo" type="email" autocomplete="email" placeholder="Ej. juan@correo.com"></div>
+                    <div class="field"><label for="empresa">Empresa</label><input id="empresa" autocomplete="organization" placeholder="Opcional"></div>
+                    <div class="field"><label for="ciudad">Ciudad <b>*</b></label><input id="ciudad" autocomplete="address-level2" placeholder="Ej. Montería"></div>
+                    <div class="field"><label for="profesion">Profesión</label>
+                        <select id="profesion">
+                            <option>Ingeniero(a) civil</option><option>Arquitecto(a)</option><option>Constructor(a) / Maestro de obra</option><option>Estudiante</option><option>Otra</option>
+                        </select>
+                    </div>
+                    <div class="field"><label for="equipo">Código del equipo</label><input id="equipo" placeholder="Si ya lo instaló"><small>Aparece al abrir el programa.</small></div>
+                </div>
+
+                <label class="terms"><input type="checkbox" id="acepto"><span>Acepto los <button type="button" id="ver-terminos">términos y condiciones</button> y autorizo el tratamiento de mis datos.</span></label>
+                <div class="form-error" id="error" role="alert"></div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-whatsapp btn-block" data-medio="whatsapp"><i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp</button>
+                    <div class="row">
+                        <button type="button" class="btn btn-ghost" data-medio="correo"><i class="fa-solid fa-envelope"></i> Enviar por correo</button>
+                        <button type="button" class="btn btn-ghost" data-medio="copiar"><i class="fa-regular fa-copy"></i> Copiar mensaje</button>
+                    </div>
+                </div>
+                <p class="legal">Sus datos se usan para crear su licencia, darle soporte e informarle de novedades (Ley 1581 de 2012).</p>
+            </form>
+        </div>
+    </section>
+
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+        <div class="modal-box">
+            <div class="modal-head"><strong id="modal-titulo">Términos y condiciones de uso</strong><button type="button" aria-label="Cerrar" id="cerrar-modal"><i class="fa-solid fa-xmark"></i></button></div>
+            <div class="modal-body" id="terminos"></div>
+        </div>
+    </div>
+    <div class="toast" id="toast"></div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom" style="margin-top:0; border-top:0; padding-top:0;">
+                <span>&copy; <span data-anio>2026</span> SSING BUILD CODES SAS · WhatsApp 311 661 9341 · torrescastro738@gmail.com</span>
+                <span><a href="index.html" style="color:inherit">Volver al inicio</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/terminos.js"></script>
+    <script>
+        (function () {
+            const WHATSAPP = "573116619341";
+            const CORREO = "torrescastro738@gmail.com";
+
+            // Video: si todavía no hay video/demo.mp4 se muestra el aviso "Muy pronto"
+            const frame = document.getElementById("video-frame");
+            const video = document.getElementById("video");
+            const sinVideo = () => frame.classList.add("sin-video");
+            video.querySelector("source").addEventListener("error", sinVideo);
+            video.addEventListener("error", sinVideo);
+
+            // Términos
+            const modal = document.getElementById("modal");
+            document.getElementById("terminos").textContent = TERMINOS;
+            document.getElementById("ver-terminos").onclick = () => modal.classList.add("open");
+            document.getElementById("cerrar-modal").onclick = () => modal.classList.remove("open");
+            modal.addEventListener("click", e => { if (e.target === modal) modal.classList.remove("open"); });
+            addEventListener("keydown", e => { if (e.key === "Escape") modal.classList.remove("open"); });
+
+            // Recordar los datos que ya escribió (solo en su navegador)
+            const ids = ["nombre", "documento", "telefono", "correo", "empresa", "ciudad", "profesion", "equipo"];
+            try {
+                const previos = JSON.parse(localStorage.getItem("ssing-solicitud") || "{}");
+                ids.forEach(k => { if (previos[k]) document.getElementById(k).value = previos[k]; });
+            } catch (e) {}
+
+            const err = document.getElementById("error");
+            const toast = document.getElementById("toast");
+            function aviso(t) { toast.textContent = t; toast.classList.add("show"); clearTimeout(aviso.t); aviso.t = setTimeout(() => toast.classList.remove("show"), 4200); }
+
+            function datos() {
+                const d = {};
+                ids.forEach(k => d[k] = document.getElementById(k).value.trim());
+                document.querySelectorAll(".field input").forEach(i => i.classList.remove("error"));
+                const faltan = [["nombre", "nombre"], ["telefono", "teléfono"], ["correo", "correo"], ["ciudad", "ciudad"]].filter(([k]) => !d[k]);
+                if (faltan.length) {
+                    faltan.forEach(([k]) => document.getElementById(k).classList.add("error"));
+                    err.textContent = "Falta: " + faltan.map(f => f[1]).join(", ") + ".";
+                    return null;
+                }
+                if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.correo)) { document.getElementById("correo").classList.add("error"); err.textContent = "Revise el correo."; return null; }
+                if (d.telefono.replace(/\D/g, "").length < 7) { document.getElementById("telefono").classList.add("error"); err.textContent = "Revise el teléfono."; return null; }
+                if (!document.getElementById("acepto").checked) { err.textContent = "Debe aceptar los términos y condiciones para enviar la solicitud."; return null; }
+                err.textContent = "";
+                d.tipo = document.querySelector("input[name=tipo]:checked").value;
+                return d;
+            }
+
+            // Mismo formato que el programa: se pega tal cual en CREAR_LICENCIA ("Leer solicitud")
+            function mensaje(d) {
+                const filas = [["tipo", "Tipo"], ["nombre", "Nombre"], ["documento", "Cédula/NIT"], ["telefono", "Teléfono"], ["correo", "Correo"],
+                               ["empresa", "Empresa"], ["ciudad", "Ciudad"], ["profesion", "Profesión"], ["equipo", "Código del equipo"]];
+                return ["SOLICITUD CalculosSSING", ...filas.map(([k, t]) => `${t}: ${d[k] || ""}`),
+                        "Términos y autorización de datos: ACEPTADOS", "Enviado desde: página web"].join("\n");
+            }
+
+            async function copiar(t) {
+                try { await navigator.clipboard.writeText(t); return true; }
+                catch (e) {
+                    const a = document.createElement("textarea"); a.value = t; document.body.appendChild(a); a.select();
+                    let ok = false; try { ok = document.execCommand("copy"); } catch (x) {} a.remove(); return ok;
+                }
+            }
+
+            document.querySelectorAll("[data-medio]").forEach(b => b.addEventListener("click", async () => {
+                const d = datos();
+                if (!d) return;
+                try { const g = {}; ids.forEach(k => g[k] = d[k]); localStorage.setItem("ssing-solicitud", JSON.stringify(g)); } catch (e) {}
+                const texto = mensaje(d);
+                const medio = b.dataset.medio;
+                if (medio === "whatsapp") {
+                    window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`, "_blank", "noopener");
+                    aviso("Se abrió WhatsApp con su solicitud: solo pulse Enviar.");
+                } else if (medio === "correo") {
+                    location.href = `mailto:${CORREO}?subject=${encodeURIComponent("Solicitud CalculosSSING")}&body=${encodeURIComponent(texto)}`;
+                    aviso("Se abrió su correo con la solicitud: solo pulse Enviar.");
+                } else {
+                    const copiado = await copiar(texto);
+                    aviso(copiado ? `Mensaje copiado. Péguelo en WhatsApp (311 661 9341) o en un correo a ${CORREO}.` : "No se pudo copiar. Use el botón de WhatsApp o correo.");
+                }
+            }));
+        })();
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/temas.js"></script>
+</body>
+</html>

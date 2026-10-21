@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | SSING BUILD CODES SAS</title>
+    <meta name="theme-color" content="#070d12">
+    <link rel="icon" href="img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+
+    <nav class="navbar solid">
+        <div class="container">
+            <a href="index.html" class="brand">
+                <img src="img/logo.png" alt="Logo SSING">
+                <span class="brand-name">SS<span>ING</span> BUILD CODES<small>INGENIERÍA · SOFTWARE</small></span>
+            </a>
+            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#servicios" class="active">Servicios</a></li>
+                <li><a href="index.html#normativa">Normativa</a></li>
+                <li><a href="software.html" target="_blank" rel="noopener" class="nav-software"><i class="fa-solid fa-calculator"></i> Software de Cálculo</a></li>
+                <li><a href="#cotizar" class="nav-cta">Cotizar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="pagina"></main>
+
+    <div class="lightbox" id="lightbox"><img alt=""></div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom" style="margin-top:0; border-top:0; padding-top:0;">
+                <span>&copy; <span data-anio>2026</span> SSING BUILD CODES SAS · Dirigida por el Ing. José Carlos Torres</span>
+                <span><a href="index.html" style="color:inherit">Volver al inicio</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/573116619341" target="_blank" rel="noopener" class="float-wa" aria-label="Escribir por WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <script src="js/servicios.js"></script>
+    <script>
+        (function () {
+            const id = new URLSearchParams(location.search).get("id");
+            const s = SERVICIOS.find(x => x.id === id) || SERVICIOS[0];
+            document.title = s.titulo + " | SSING BUILD CODES SAS";
+            const wa = "https://wa.me/573116619341?text=" + encodeURIComponent("Hola, quiero cotizar el servicio: " + s.titulo);
+
+            document.getElementById("pagina").innerHTML = `
+            <header class="page-hero">
+                <div class="hero-bg" style="background-image:url('${s.imagen}')"></div>
+                <div class="container page-hero-grid">
+                    <div>
+                        <div class="breadcrumb"><a href="index.html">Inicio</a> / <a href="index.html#servicios">Servicios</a> / ${s.titulo}</div>
+                        <span class="eyebrow">Servicio</span>
+                        <h1>${s.titulo}</h1>
+                        <p class="lead">${s.lead}</p>
+                        <div class="hero-actions">
+                            <a href="${wa}" target="_blank" rel="noopener" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> Cotizar por WhatsApp</a>
+                            <a href="#alcance" class="btn btn-ghost">Ver alcance</a>
+                        </div>
+                    </div>
+                    <figure class="drawing" style="color: var(--accent);">
+                        ${DIBUJOS[s.dibujo] || ""}
+                        <figcaption><span>SSING · ${s.id.toUpperCase()}</span><span>NSR-10</span></figcaption>
+                    </figure>
+                </div>
+            </header>
+
+            <section class="section" id="alcance">
+                <div class="container detail-grid">
+                    <div class="prose">
+                        <h3>Qué hacemos</h3>
+                        ${s.texto.map(p => `<p>${p}</p>`).join("")}
+                        <h3>Alcance del servicio</h3>
+                        <ul class="feature-list">${s.incluye.map(t => `<li><i class="fa-solid fa-check"></i>${t}</li>`).join("")}</ul>
+                        <h3>Normativa de referencia</h3>
+                        <table class="norm-table">${s.normas.map(n => `<tr><th>${n[0]}</th><td>${n[1]}</td></tr>`).join("")}</table>
+                    </div>
+                    <aside class="side-card">
+                        <div><h4>Herramientas</h4><div class="chips">${s.herramientas.map(h => `<span class="chip">${h}</span>`).join("")}</div></div>
+                        <div><h4>Normas</h4><div class="chips">${s.normas.map(n => `<span class="chip">${n[0]}</span>`).join("")}</div></div>
+                        <div><h4>¿Tiene un proyecto?</h4>
+                            <p style="color:var(--muted); font-size:.92rem; margin-bottom:14px;">Envíenos sus planos o la descripción y le respondemos con alcance, tiempo y valor.</p>
+                            <a href="${wa}" target="_blank" rel="noopener" class="btn btn-whatsapp btn-block"><i class="fa-brands fa-whatsapp"></i> Escribir por WhatsApp</a>
+                            <a href="mailto:torrescastro738@gmail.com?subject=${encodeURIComponent("Cotización: " + s.titulo)}" class="btn btn-ghost btn-block" style="margin-top:10px;"><i class="fa-solid fa-envelope"></i> Enviar correo</a>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+            <section class="section" style="padding-top:0;">
+                <div class="container">
+                    <div class="section-head"><span class="eyebrow">Entregables</span><h2>Lo que recibe</h2></div>
+                    <div class="deliverables">${s.entregables.map(e => `<div><strong>${e[0]}</strong><span>${e[1]}</span></div>`).join("")}</div>
+                </div>
+            </section>
+
+            <section class="section blueprint" style="background-color: var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+                <div class="container">
+                    <div class="section-head"><span class="eyebrow">Galería</span><h2>Proyectos y trabajos</h2></div>
+                    <div class="gallery">${s.galeria.map((g, i) => `<figure class="${i === 0 && s.galeria.length !== 3 ? "wide" : ""}"><img src="${g[0]}" alt="${g[1]}" loading="lazy" onerror="this.parentNode.remove()"><figcaption>${g[1]}</figcaption></figure>`).join("")}</div>
+                </div>
+            </section>
+
+            ${s.preguntas && s.preguntas.length ? `
+            <section class="section">
+                <div class="container" style="max-width:860px;">
+                    <div class="section-head"><span class="eyebrow">Preguntas frecuentes</span><h2>Resolvemos sus dudas</h2></div>
+                    <div class="faq">${s.preguntas.map(q => `<details><summary>${q[0]}</summary><p>${q[1]}</p></details>`).join("")}</div>
+                </div>
+            </section>` : ""}
+
+            <section class="section" style="padding-top:0;" id="cotizar">
+                <div class="container">
+                    <div class="cta-band">
+                        <h2>¿Listo para empezar?</h2>
+                        <p>Cuéntenos de su proyecto y reciba una propuesta sin compromiso.</p>
+                        <div class="hero-actions">
+                            <a href="${wa}" target="_blank" rel="noopener" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> Cotizar ahora</a>
+                            <a href="index.html#contacto" class="btn btn-ghost">Otros medios de contacto</a>
+                        </div>
+                    </div>
+                    <div class="section-head" style="margin:80px 0 24px;"><span class="eyebrow">Otros servicios</span></div>
+                    <div class="other-services">${SERVICIOS.filter(x => x.id !== s.id).map(x => `<a href="servicio.html?id=${x.id}"><i class="fa-solid ${x.icono}"></i>${x.titulo}</a>`).join("")}</div>
+                </div>
+            </section>`;
+
+            // Ver fotos en grande
+            const lb = document.getElementById("lightbox");
+            document.querySelectorAll(".gallery img").forEach(img => img.addEventListener("click", () => {
+                lb.querySelector("img").src = img.src;
+                lb.classList.add("open");
+            }));
+            lb.addEventListener("click", () => lb.classList.remove("open"));
+            addEventListener("keydown", e => { if (e.key === "Escape") lb.classList.remove("open"); });
+        })();
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/temas.js"></script>
+</body>
+</html>

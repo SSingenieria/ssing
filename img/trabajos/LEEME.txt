@@ -1,0 +1,11 @@
+﻿FOTOS DE TRABAJOS (sección "Trabajos" del inicio)
+
+Copie las fotos en la carpeta de su categoría, con números seguidos y en .jpg:
+  cimentaciones\1.jpg, 2.jpg, 3.jpg ...
+  calculos\1.jpg, 2.jpg ...
+  estructuras\  obras\  bim\  otros\
+
+La página las muestra solas. Si salta un número (1, 2, 4) se detiene en el 2.
+Carpeta vacía = esa categoría no aparece. Todas vacías = la sección se oculta.
+Títulos de cada foto (opcional) y categorías nuevas: js\trabajos.js
+Peso recomendado: menos de 500 KB por foto (ancho 1600 px).

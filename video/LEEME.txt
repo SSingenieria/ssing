@@ -1,0 +1,14 @@
+VIDEO DE DEMOSTRACIÓN DE CalculosSSING (página software.html)
+==============================================================
+
+1. Copie aquí su video con el nombre exacto:   demo.mp4
+2. (Opcional) Copie una imagen de portada:      portada.jpg
+   Es la imagen que se ve antes de darle "play".
+
+Recomendaciones:
+- Formato MP4 (H.264). Si lo graba con OBS o lo exporta en CapCut, elija MP4.
+- Resolución 1920x1080 (o 1280x720).
+- Peso máximo recomendado: 50 MB. GitHub no acepta archivos de más de 100 MB.
+  Si el video es más pesado, súbalo a YouTube y avíseme para ponerlo desde allá.
+
+Mientras no exista demo.mp4, la página muestra "Video de demostración · Muy pronto".

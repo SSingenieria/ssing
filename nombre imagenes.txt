@@ -1,0 +1,40 @@
+GUÍA DE ARCHIVOS DE LA PÁGINA
+=============================
+
+PÁGINAS
+index.html      ➔ Inicio.
+servicio.html   ➔ Página de cada servicio (servicio.html?id=estructural, ?id=bim, etc.).
+software.html   ➔ Solicitud de prueba o licencia de CalculosSSING + video.
+
+IMÁGENES (carpeta img)
+fondo-hero.jpg  ➔ Fondo principal de arriba.
+logo.png        ➔ Logo (barra superior y pestaña del navegador).
+imagen1.jpg     ➔ Diseño y Análisis Estructural
+imagen2.jpg     ➔ Software de Cálculo (también fondo de software.html)
+imagen3.jpg     ➔ Modelado Arquitectónico y Renders 3D
+imagen4.jpg     ➔ Fotogrametría y Drones
+imagen5.jpg     ➔ Gestión y Ejecución de Obras
+imagen6.jpg     ➔ Estudios Geotécnicos y de Suelos
+imagen7.jpg     ➔ Modelado y Coordinación BIM
+imagen8.jpg     ➔ Interventoría y Supervisión Técnica
+img/servicios/  ➔ Fotos extra para las galerías de cada servicio.
+
+TEXTOS DE LOS SERVICIOS
+js/servicios.js ➔ Títulos, textos, normas, herramientas, entregables, preguntas y galería de cada servicio.
+                  Para agregar una foto a una galería: cópiela en img/servicios/ y agregue en "galeria":
+                  ["img/servicios/mi-foto.jpg", "Descripción corta"],
+
+TEMAS FESTIVOS (Halloween, Navidad, Año Nuevo, Amor y Amistad, Día del Ingeniero, 20 de julio)
+js/temas.js     ➔ Arriba están los interruptores:
+                  modo: "auto"     = se encienden solos en sus fechas
+                  modo: "apagado"  = ninguno
+                  activo: true / false = encender o apagar cada fiesta
+                  desde / hasta    = fechas "MM-DD"
+                  Para ver un tema sin esperar la fecha: index.html?tema=navidad
+
+VIDEO
+video/demo.mp4  ➔ Video del programa en software.html (ver video/LEEME.txt).
+video/portada.jpg ➔ Imagen antes de reproducir (opcional).
+
+TÉRMINOS
+js/terminos.js  ➔ Copia de "TERMINOS Y CONDICIONES.txt" del programa.
