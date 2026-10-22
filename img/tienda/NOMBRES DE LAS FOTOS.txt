@@ -7,7 +7,7 @@ Si cambia el nombre del producto en js\tienda.js, cambie también el nombre de l
 CalculosSSING · Paquete TODO anual.jpg
 CalculosSSING · Paquete TODO mensual.jpg
 CalculosSSING · Prueba 1 día.jpg
-Complemento · Reportes en Word con su logo.jpg
+Paquete adicional · Reportes en Word con su logo.jpg
 MemoriasSSING · Generador de memorias de cálculo.jpg
 Combo CalculosSSING + MemoriasSSING.jpg
 Software a la medida.jpg

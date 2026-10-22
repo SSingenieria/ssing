@@ -31,6 +31,7 @@ const TIENDA = {
     categorias: [
         { id: "software",     nombre: "Software",                icono: "fa-laptop-code" },
         { id: "calculos",     nombre: "CalculosSSING por categoría", icono: "fa-calculator" },
+        { id: "adicionales",  nombre: "Paquetes adicionales de CalculosSSING", icono: "fa-puzzle-piece" },
         { id: "construccion", nombre: "Construcción y remodelación", icono: "fa-trowel-bricks" },
         { id: "ingenieria",   nombre: "Diseño e ingeniería",     icono: "fa-compass-drafting" }
     ],
@@ -48,10 +49,10 @@ const TIENDA = {
           icono: "fa-flask", enlace: "software.html",
           descripcion: "Pruebe el programa antes de comprar: cálculos de Zapatas durante 1 día, con marca de agua.",
           incluye: ["7 cálculos de zapatas", "Memoria en PDF con marca de agua", "Soporte por WhatsApp"] },
-        { id: "word-logo", categoria: "software", nombre: "Complemento · Reportes en Word con su logo", precio: 250000, unidad: "por año",
-          icono: "fa-file-word",
-          descripcion: "Además del PDF, reciba la memoria en Word editable con el nombre y el logo de su empresa.",
-          incluye: ["Memoria en Word editable", "Su empresa y su logo en los encabezados", "Para todas sus categorías"] },
+        { id: "word-logo", categoria: "adicionales", nombre: "Paquete adicional · Reportes en Word con su logo", precio: 250000, unidad: "por año · se suma a su licencia",
+          icono: "fa-file-word", etiqueta: "Adicional",
+          descripcion: "Se agrega a cualquier licencia de CalculosSSING (Paquete TODO o por categoría): además del PDF, reciba la memoria en Word editable con el nombre y el logo de su empresa.",
+          incluye: ["Memoria en Word editable", "Su empresa y su logo en los encabezados", "Para todas las categorías que tenga", "Requiere una licencia de CalculosSSING"] },
         { id: "memorias", categoria: "software", nombre: "MemoriasSSING · Generador de memorias de cálculo", precio: null, unidad: "licencia", etiqueta: "Nuevo",
           icono: "fa-file-lines",
           descripcion: "Arma la memoria de cálculo completa de su proyecto en Word y PDF (concreto y estructura metálica): usted pone los datos y las imágenes, el programa hace el documento.",
@@ -186,7 +187,7 @@ TIENDA.promociones = typeof PROMOCIONES !== "undefined" ? PROMOCIONES : [];
 
 /* ¿La promoción está activa en esta fecha? "dias" se repite cada año:
    "11-27" un día · "12-24:12-31" un rango · "black_friday" · "amor_amistad" (3er sábado de septiembre)
-   · "2027-01-15" una fecha de un solo año */
+   · "2027-01-15" una fecha de un solo año · "2026-11-15:2026-11-20" un rango de un solo año */
 TIENDA.fechaEspecial = function (regla, anio) {
     if (regla === "black_friday") {              // viernes después del 4.º jueves de noviembre
         const d = new Date(anio, 10, 1);
@@ -209,6 +210,10 @@ TIENDA.activaEn = function (promo, f) {
         const esp = TIENDA.fechaEspecial(t, f.getFullYear());
         if (esp) return esp.toDateString() === f.toDateString();
         if (/^\d{4}-\d{2}-\d{2}$/.test(t)) return t === iso;
+        if (/^\d{4}-\d{2}-\d{2}:\d{4}-\d{2}-\d{2}$/.test(t)) {     // rango de un solo año (promoción especial)
+            const [a, b] = t.split(":");
+            return iso >= a && iso <= b;
+        }
         if (t.includes(":")) {
             const [a, b] = t.split(":").map(num);
             return a <= b ? (md >= a && md <= b) : (md >= a || md <= b);
