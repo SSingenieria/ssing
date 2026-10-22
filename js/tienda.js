@@ -29,19 +29,21 @@ const TIENDA = {
     ],
 
     categorias: [
-        { id: "software",     nombre: "Software",                icono: "fa-laptop-code" },
+        // El orden de esta lista es el orden en que salen en la tienda
+        { id: "construccion", nombre: "Construcción y remodelación", icono: "fa-trowel-bricks" },
+        { id: "ingenieria",   nombre: "Diseño e ingeniería",     icono: "fa-compass-drafting" },
+        { id: "combos",       nombre: "Combos (más ahorro)",     icono: "fa-boxes-stacked" },
         { id: "calculos",     nombre: "CalculosSSING por categoría", icono: "fa-calculator" },
         { id: "adicionales",  nombre: "Paquetes adicionales de CalculosSSING", icono: "fa-puzzle-piece" },
-        { id: "construccion", nombre: "Construcción y remodelación", icono: "fa-trowel-bricks" },
-        { id: "ingenieria",   nombre: "Diseño e ingeniería",     icono: "fa-compass-drafting" }
+        { id: "software",     nombre: "Prueba gratis y otros programas", icono: "fa-laptop-code" }
     ],
     productos: [
-        /* ---------------- SOFTWARE ---------------- */
-        { id: "todo-anual", categoria: "software", nombre: "CalculosSSING · Paquete TODO anual", precio: 1090000, antes: 2035000, unidad: "por año", etiqueta: "Mejor valor",
+        /* ---------------- COMBOS (MÁS AHORRO) ---------------- */
+        { id: "todo-anual", categoria: "combos", nombre: "CalculosSSING · Paquete TODO anual", precio: 1090000, antes: 2035000, unidad: "por año", etiqueta: "Mejor valor",
           icono: "fa-calculator", imagen: "img/imagen2.jpg", enlace: "software.html",
           descripcion: "Las 11 categorías y los 32 cálculos, con planos DXF, y todo lo que salga después sin costo adicional. Ahorra $945.000.",
           incluye: ["32 cálculos en 11 categorías", "Memoria en PDF con fórmulas y verificaciones", "Plano DXF en todas las categorías", "Cálculos nuevos sin costo durante la vigencia", "Soporte por WhatsApp y correo"] },
-        { id: "todo-mensual", categoria: "software", nombre: "CalculosSSING · Paquete TODO mensual", precio: 130000, unidad: "por mes",
+        { id: "todo-mensual", categoria: "combos", nombre: "CalculosSSING · Paquete TODO mensual", precio: 130000, unidad: "por mes",
           icono: "fa-calendar-days", imagen: "img/imagen2.jpg", enlace: "software.html",
           descripcion: "Todo el programa pagando mes a mes. (12 meses suman $1.560.000: el pago anual le ahorra $470.000.)",
           incluye: ["32 cálculos en 11 categorías", "Memoria en PDF y plano DXF", "Actualizaciones y soporte"] },
@@ -57,7 +59,7 @@ const TIENDA = {
           icono: "fa-file-lines",
           descripcion: "Arma la memoria de cálculo completa de su proyecto en Word y PDF (concreto y estructura metálica): usted pone los datos y las imágenes, el programa hace el documento.",
           incluye: ["Portada con su empresa y su logo", "Índice y tabla de figuras automáticos", "Exporta a Word y PDF", "Textos con referencias NSR-10", "Licencia para 1 computador"] },
-        { id: "combo", categoria: "software", nombre: "Combo CalculosSSING + MemoriasSSING", precio: null, unidad: "licencias", etiqueta: "Combo",
+        { id: "combo", categoria: "combos", nombre: "Combo CalculosSSING + MemoriasSSING", precio: null, unidad: "licencias", etiqueta: "Combo",
           icono: "fa-boxes-stacked",
           descripcion: "Calcule con CalculosSSING y entregue la memoria completa con MemoriasSSING. Los dos programas juntos.",
           incluye: ["Licencia de CalculosSSING", "Licencia de MemoriasSSING", "Soporte y actualizaciones"] },

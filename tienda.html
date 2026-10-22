@@ -103,7 +103,7 @@
     </footer>
 
     <script>document.write('<script src="promociones/promociones.js?t=' + Math.floor(Date.now() / 600000) + '"><\/script>');</script>
-    <script src="js/tienda.js?v=10"></script>
+    <script src="js/tienda.js?v=12"></script>
     <script>
         function siguienteFoto(img) {
             const otras = img.dataset.otras ? img.dataset.otras.split("|") : [];
@@ -192,7 +192,7 @@
                         (!q || norm(p.nombre + " " + p.descripcion + " " + (p.incluye || []).join(" ")).includes(q)));
                     if (!lista.length) return;
                     hay = true;
-                    const extra = c.id === "software" && TIENDA.beneficios ? `<div class="benefits">${TIENDA.beneficios.map(b =>
+                    const extra = c.id === "combos" && TIENDA.beneficios ? `<div class="benefits">${TIENDA.beneficios.map(b =>
                         `<div><i class="fa-solid ${b[0]}"></i><span>${b[1]}</span><strong>${b[2]}</strong></div>`).join("")}</div>` : "";
                     html += `<div class="shop-group"><h2><i class="fa-solid ${c.icono}"></i> ${c.nombre}<small>${lista.length}</small></h2>
                              ${extra}<div class="products">${lista.map(tarjeta).join("")}</div></div>`;

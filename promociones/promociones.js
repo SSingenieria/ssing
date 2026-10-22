@@ -13,7 +13,7 @@ const PROMOCIONES = [
     "tipo": "descuento",
     "dias": ["black_friday"],
     "descuento": 20,
-    "aplica": ["software", "calculos", "adicionales"]
+    "aplica": ["combos", "software", "calculos", "adicionales"]
   },
   {
     "id": "navidad",
@@ -54,7 +54,7 @@ const PROMOCIONES = [
     "tipo": "descuento",
     "dias": ["08-17"],
     "descuento": 17,
-    "aplica": ["software", "calculos", "adicionales"]
+    "aplica": ["combos", "software", "calculos", "adicionales"]
   },
   {
     "id": "amor-amistad",
