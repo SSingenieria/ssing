@@ -29,7 +29,7 @@ const TIENDA = {
     ],
 
     // Orden de las secciones cuando el cliente pulsa "Todo" (las que no estén aquí salen al final)
-    ordenTodo: ["promos", "combos", "adicionales", "construccion", "ingenieria", "calculos", "software"],
+    ordenTodo: ["promos", "combos", "calculos", "adicionales", "construccion", "ingenieria", "software"],
 
     categorias: [
         // El orden de esta lista es el de los botones de arriba (el orden en "Todo" está en ordenTodo)
