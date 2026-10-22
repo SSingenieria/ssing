@@ -103,7 +103,7 @@
     </footer>
 
     <script>document.write('<script src="promociones/promociones.js?t=' + Math.floor(Date.now() / 600000) + '"><\/script>');</script>
-    <script src="js/tienda.js?v=12"></script>
+    <script src="js/tienda.js?v=13"></script>
     <script>
         function siguienteFoto(img) {
             const otras = img.dataset.otras ? img.dataset.otras.split("|") : [];
@@ -186,7 +186,10 @@
                     .normalize("NFD").replace(/[̀-ͯ]/g, "");
                 const norm = t => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
                 let html = "", hay = false;
-                TIENDA.categorias.forEach(c => {
+                const orden = TIENDA.ordenTodo || [];
+                const pos = c => { const i = orden.indexOf(c.id); return i < 0 ? 999 : i; };
+                const cats = filtro === "*" ? TIENDA.categorias.slice().sort((a, b) => pos(a) - pos(b)) : TIENDA.categorias;
+                cats.forEach(c => {
                     if (filtro !== "*" && filtro !== c.id) return;
                     const lista = P.filter(p => p.categoria === c.id &&
                         (!q || norm(p.nombre + " " + p.descripcion + " " + (p.incluye || []).join(" ")).includes(q)));

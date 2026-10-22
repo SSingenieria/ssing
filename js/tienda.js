@@ -28,8 +28,11 @@ const TIENDA = {
         ["fa-flask", "Prueba de 1 día (solo Zapatas, con marca de agua)", "Gratis"]
     ],
 
+    // Orden de las secciones cuando el cliente pulsa "Todo" (las que no estén aquí salen al final)
+    ordenTodo: ["promos", "combos", "adicionales", "construccion", "ingenieria", "calculos", "software"],
+
     categorias: [
-        // El orden de esta lista es el orden en que salen en la tienda
+        // El orden de esta lista es el de los botones de arriba (el orden en "Todo" está en ordenTodo)
         { id: "construccion", nombre: "Construcción y remodelación", icono: "fa-trowel-bricks" },
         { id: "ingenieria",   nombre: "Diseño e ingeniería",     icono: "fa-compass-drafting" },
         { id: "combos",       nombre: "Combos (más ahorro)",     icono: "fa-boxes-stacked" },
