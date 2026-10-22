@@ -67,7 +67,7 @@ const SERVICIOS = [
         lead: "Convertimos procedimientos de ingeniería en programas confiables. Menos horas repitiendo hojas de cálculo, más tiempo para el criterio técnico.",
         texto: [
             "Somos ingenieros que programan. Por eso cada herramienta que desarrollamos sigue paso a paso la norma: cada fórmula indica su numeral de la NSR-10 o del ACI 318, cada constante normativa queda identificada y cada resultado se puede revisar a mano.",
-            "Nuestro producto principal es CalculosSSING, un programa de escritorio para generar memorias de cálculo de cimentaciones, vigas, losas, escaleras y otros elementos, con reportes en Word y planos en DXF.",
+            "Nuestro producto principal es CalculosSSING, un programa de escritorio para generar memorias de cálculo de cimentaciones, losas, escaleras, muros, pilas, pilotes, tanques y piscinas: 32 cálculos en 11 categorías, con memoria en PDF y planos en DXF.",
             "También desarrollamos herramientas a la medida de su empresa: automatización de hojas de Excel, generación de reportes, lectura de resultados de ETABS/SAFE y aplicaciones con interfaz gráfica en Python."
         ],
         incluye: [

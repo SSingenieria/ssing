@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
@@ -25,6 +25,7 @@
             <ul class="nav-links">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="tienda.html">Tienda</a></li>
                 <li><a href="#solicitud" class="nav-software active"><i class="fa-solid fa-calculator"></i> CalculosSSING</a></li>
                 <li><a href="index.html#contacto" class="nav-cta">Contacto</a></li>
             </ul>
@@ -64,7 +65,7 @@
                 <div class="sw-features">
                     <div><i class="fa-solid fa-layer-group"></i><span>Zapatas, vigas, losas, escaleras, muros y más elementos</span></div>
                     <div><i class="fa-solid fa-book"></i><span>Cada fórmula con su numeral de la NSR-10 / ACI 318</span></div>
-                    <div><i class="fa-solid fa-file-word"></i><span>Reporte de memoria de cálculo en Word</span></div>
+                    <div><i class="fa-solid fa-file-pdf"></i><span>Memoria de cálculo en PDF (en Word con su logo, opcional)</span></div>
                     <div><i class="fa-solid fa-compass-drafting"></i><span>Planos de despiece en DXF</span></div>
                     <div><i class="fa-solid fa-floppy-disk"></i><span>Proyectos guardados en su computador</span></div>
                     <div><i class="fa-solid fa-rotate"></i><span>Actualizaciones y soporte directo</span></div>
@@ -137,7 +138,7 @@
         </div>
     </footer>
 
-    <script src="js/terminos.js"></script>
+    <script src="js/terminos.js?v=7"></script>
     <script>
         (function () {
             const WHATSAPP = "573116619341";
@@ -222,7 +223,9 @@
             }));
         })();
     </script>
-    <script src="js/main.js"></script>
-    <script src="js/temas.js"></script>
+    <script>document.write('<script src="promociones/promociones.js?t=' + Math.floor(Date.now() / 600000) + '"><\/script>');</script>
+    <script src="js/tienda.js?v=8"></script>
+    <script src="js/main.js?v=7"></script>
+    <script src="js/temas.js?v=7"></script>
 </body>
 </html>

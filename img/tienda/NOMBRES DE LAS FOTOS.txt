@@ -1,0 +1,43 @@
+﻿FOTOS DE LA TIENDA
+==================
+Pegue aquí la foto de cada producto con el nombre EXACTO de abajo + .jpg
+(también sirve .png). Si no hay foto, sale la imagen de siempre o el ícono.
+Si cambia el nombre del producto en js\tienda.js, cambie también el nombre de la foto.
+
+CalculosSSING · Paquete TODO anual.jpg
+CalculosSSING · Paquete TODO mensual.jpg
+CalculosSSING · Prueba 1 día.jpg
+Complemento · Reportes en Word con su logo.jpg
+MemoriasSSING · Generador de memorias de cálculo.jpg
+Combo CalculosSSING + MemoriasSSING.jpg
+Software a la medida.jpg
+Zapatas.jpg
+Vigas de cimentación.jpg
+Losas.jpg
+Escaleras.jpg
+Muros estructurales.jpg
+Muros de contención.jpg
+Muros de tierra reforzada.jpg
+Pilas.jpg
+Pilotes con cabezal.jpg
+Tanques de agua.jpg
+Piscinas.jpg
+Box culvert.jpg
+Construcción de vivienda.jpg
+Remodelaciones.jpg
+Ampliaciones y segundo piso.jpg
+Estructura y obra gris.jpg
+Acabados.jpg
+Cubiertas y techos.jpg
+Reforzamiento estructural.jpg
+Tanques y piscinas.jpg
+Placas, andenes y cerramientos.jpg
+Redes hidrosanitarias y eléctricas.jpg
+Paquete licencia de construcción.jpg
+Diseño estructural.jpg
+Estudio de suelos.jpg
+Planos y renders 3D.jpg
+Levantamiento con dron.jpg
+Presupuesto y APU.jpg
+Peritaje y evaluación estructural.jpg
+Interventoría y supervisión técnica.jpg

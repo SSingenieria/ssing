@@ -1,6 +1,10 @@
 /* =========================================================
    TEMAS FESTIVOS — interruptores del dueño
    ---------------------------------------------------------
+   OJO: lo más fácil es cambiarlos en el GENERADOR DE PROMOCIONES
+   (pestaña "Temas festivos"); lo que diga ese archivo manda sobre esto.
+   Aquí solo quedan los valores por defecto y los mensajes.
+
    MODO:
      "auto"     -> cada tema se enciende solo en sus fechas (recomendado)
      "apagado"  -> nunca se muestra ningún tema
@@ -17,17 +21,24 @@
 const TEMAS_CONFIG = {
     modo: "auto",
 
-    halloween:     { activo: true, desde: "10-15", hasta: "11-01", mensaje: "Feliz Halloween · Diseños que no dan miedo, cálculos que sí cumplen" },
-    navidad:       { activo: true, desde: "12-01", hasta: "12-27", mensaje: "Felices fiestas · Gracias por construir con nosotros este año" },
-    anio_nuevo:    { activo: true, desde: "12-28", hasta: "01-06", mensaje: "Feliz Año Nuevo · Nuevos proyectos, la misma solidez" },
-    amor_amistad:  { activo: true, desde: "09-13", hasta: "09-21", mensaje: "Feliz Amor y Amistad · Las mejores estructuras se construyen en equipo" },
-    ingeniero:     { activo: true, desde: "08-15", hasta: "08-18", mensaje: "17 de agosto · Feliz Día del Ingeniero Colombiano" },
-    independencia: { activo: true, desde: "07-19", hasta: "07-21", mensaje: "20 de julio · Feliz Día de la Independencia de Colombia" }
+    halloween:     { activo: true, desde: "10-01", hasta: "10-31", mensaje: "Feliz Halloween · Diseños que no dan miedo, cálculos que sí cumplen" },
+    navidad:       { activo: true, desde: "12-01", hasta: "12-31", mensaje: "Felices fiestas · Gracias por construir con nosotros este año" },
+    anio_nuevo:    { activo: true, desde: "01-01", hasta: "01-06", mensaje: "Feliz Año Nuevo · Nuevos proyectos, la misma solidez" },
+    amor_amistad:  { activo: true, desde: "09-01", hasta: "09-30", mensaje: "Feliz Amor y Amistad · Las mejores estructuras se construyen en equipo" },
+    ingeniero:     { activo: true, desde: "08-10", hasta: "08-17", mensaje: "17 de agosto · Feliz Día del Ingeniero Colombiano" },
+    independencia: { activo: true, desde: "07-18", hasta: "07-20", mensaje: "20 de julio · Feliz Día de la Independencia de Colombia" }
 };
 
 /* ---------------- A partir de aquí no necesita editar ---------------- */
 (function () {
     const C = TEMAS_CONFIG;
+    // Lo que se elija en el GENERADOR DE PROMOCIONES (promociones/promociones.js) manda sobre lo de aquí
+    if (typeof AJUSTES_TEMAS !== "undefined") {
+        Object.keys(AJUSTES_TEMAS).forEach(k => {
+            if (k === "modo") C.modo = AJUSTES_TEMAS.modo;
+            else if (C[k]) Object.assign(C[k], AJUSTES_TEMAS[k]);
+        });
+    }
     const nombres = ["halloween", "navidad", "anio_nuevo", "amor_amistad", "ingeniero", "independencia"];
 
     function enRango(hoy, desde, hasta) {
@@ -83,6 +94,10 @@ const TEMAS_CONFIG = {
     .luces i:nth-child(3n) { animation-delay:.5s } .luces i:nth-child(3n+1) { animation-delay:1s }
     @keyframes titilar { from { opacity:.35 } to { opacity:1 } }
     .telarana { position:absolute; top:0; right:0; width:170px; opacity:.22; pointer-events:none; color:var(--silver); }
+    .fest-flota { box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--fest-anillo, var(--accent)), 0 10px 30px -6px var(--accent-glow) !important; }
+    .fest-gorro { position:absolute; top:-15px; left:50%; transform:translateX(-50%) rotate(-12deg); font-size:1.15rem; line-height:1;
+        pointer-events:none; filter:drop-shadow(0 2px 3px rgba(0,0,0,.5)); animation: gorro 2.4s ease-in-out infinite; }
+    @keyframes gorro { 50% { transform:translateX(-50%) rotate(10deg) translateY(-2px); } }
     @media (max-width:640px){ .fest-bar{font-size:.74rem} .telarana{width:110px} }
     @media (prefers-reduced-motion: reduce){ .fest-capa{display:none} }
     `;
@@ -110,6 +125,16 @@ const TEMAS_CONFIG = {
             try { localStorage.setItem("ssing-efectos", apagadoPorVisitante ? "off" : "on"); } catch (e) {}
             bar.querySelector("i").className = "fa-solid " + (apagadoPorVisitante ? "fa-play" : "fa-pause");
             if (apagadoPorVisitante) quitarEfectos(); else efectos();
+        });
+
+        // Botones flotantes (WhatsApp, tienda, pedido) con el adorno de la fiesta
+        const GORROS = { halloween: ["🎃", "🦇", "👻"], navidad: ["🎅", "🎄", "⭐"], anio_nuevo: ["🎉", "✨", "🥂"],
+                         amor_amistad: ["💛", "💝", "💛"], ingeniero: ["📐", "👷", "📏"], independencia: ["🇨🇴", "🇨🇴", "🇨🇴"] };
+        const ANILLO = { navidad: "#c0392b", independencia: "#ffd23f", halloween: "#ff9a3c" };
+        if (ANILLO[tema]) document.documentElement.style.setProperty("--fest-anillo", ANILLO[tema]);
+        document.querySelectorAll(".float-wa, .float-shop, .cart-fab").forEach((b, i) => {
+            b.classList.add("fest-flota");
+            b.insertAdjacentHTML("beforeend", `<span class="fest-gorro fest-deco" style="animation-delay:${i * .4}s">${GORROS[tema][i % 3]}</span>`);
         });
 
         const nav = document.querySelector(".navbar");

@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
@@ -30,7 +30,7 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#trabajos">Trabajos</a></li>
-                <li><a href="#normativa">Normativa</a></li>
+                <li><a href="tienda.html">Tienda</a></li>
                 <li><a href="software.html" target="_blank" rel="noopener" class="nav-software"><i class="fa-solid fa-calculator"></i> Software de Cálculo</a></li>
                 <li><a href="#contacto" class="nav-cta">Contacto</a></li>
             </ul>
@@ -121,7 +121,7 @@
                     <ul class="check-list">
                         <li><i class="fa-solid fa-check"></i> Cimentaciones, vigas, losas, escaleras y más</li>
                         <li><i class="fa-solid fa-check"></i> Cada fórmula referenciada a la NSR-10 y al ACI 318</li>
-                        <li><i class="fa-solid fa-check"></i> Reportes en Word y planos en DXF</li>
+                        <li><i class="fa-solid fa-check"></i> 32 cálculos en 11 categorías, memoria en PDF y plano DXF</li>
                         <li><i class="fa-solid fa-check"></i> Prueba gratis antes de comprar la licencia</li>
                     </ul>
                     <div class="hero-actions">
@@ -140,6 +140,22 @@
                         <div class="mock-row"><span>Refuerzo</span><b>9 Nº5 c/0.20 m</b></div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tienda -->
+    <section id="tienda" class="section" style="padding-top: 20px;">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Tienda</span>
+                <h2>Software, obra e ingeniería</h2>
+                <p>Compre licencias de nuestros programas o cotice construcción, remodelaciones y diseños. Arme su pedido y envíelo por WhatsApp.</p>
+            </div>
+            <div class="shop-teaser">
+                <a href="tienda.html?cat=software" class="reveal"><i class="fa-solid fa-laptop-code"></i><strong>Software</strong><span>CalculosSSING, MemoriasSSING y programas a la medida.</span><em>Ver licencias →</em></a>
+                <a href="tienda.html?cat=construccion" class="reveal d1"><i class="fa-solid fa-trowel-bricks"></i><strong>Construcción y remodelación</strong><span>Viviendas, segundos pisos, remodelaciones, acabados, cubiertas y más.</span><em>Ver servicios →</em></a>
+                <a href="tienda.html?cat=ingenieria" class="reveal d2"><i class="fa-solid fa-compass-drafting"></i><strong>Diseño e ingeniería</strong><span>Paquete de licencia, diseño estructural, suelos, planos y peritajes.</span><em>Ver paquetes →</em></a>
             </div>
         </div>
     </section>
@@ -197,6 +213,7 @@
                     <ul>
                         <li><a href="#proceso">Cómo trabajamos</a></li>
                         <li><a href="#normativa">Normativa</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
                         <li><a href="software.html" target="_blank" rel="noopener">CalculosSSING</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
@@ -211,7 +228,7 @@
 
     <a href="https://wa.me/573116619341" target="_blank" rel="noopener" class="float-wa" aria-label="Escribir por WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
 
-    <script src="js/servicios.js"></script>
+    <script src="js/servicios.js?v=7"></script>
     <script>
         // Tarjetas de servicios y enlaces del pie de página
         document.getElementById("lista-servicios").innerHTML = SERVICIOS.map((s, i) => `
@@ -226,8 +243,10 @@
         document.getElementById("pie-servicios").innerHTML =
             SERVICIOS.slice(0, 5).map(s => `<li><a href="servicio.html?id=${s.id}">${s.titulo}</a></li>`).join("");
     </script>
-    <script src="js/trabajos.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/temas.js"></script>
+    <script src="js/trabajos.js?v=7"></script>
+    <script>document.write('<script src="promociones/promociones.js?t=' + Math.floor(Date.now() / 600000) + '"><\/script>');</script>
+    <script src="js/tienda.js?v=8"></script>
+    <script src="js/main.js?v=7"></script>
+    <script src="js/temas.js?v=7"></script>
 </body>
 </html>

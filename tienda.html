@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda | SSING BUILD CODES SAS</title>
+    <meta name="description" content="Licencias de CalculosSSING y MemoriasSSING, construcción, remodelaciones, diseño estructural, estudios de suelos y más. Arme su pedido y envíelo por WhatsApp.">
+    <meta name="theme-color" content="#070d12">
+    <link rel="icon" href="img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=7">
+</head>
+<body>
+
+    <nav class="navbar solid">
+        <div class="container">
+            <a href="index.html" class="brand">
+                <img src="img/logo.png" alt="Logo SSING">
+                <span class="brand-name">SS<span>ING</span> BUILD CODES<small>INGENIERÍA · SOFTWARE</small></span>
+            </a>
+            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="tienda.html" class="active">Tienda</a></li>
+                <li><a href="software.html" target="_blank" rel="noopener" class="nav-software"><i class="fa-solid fa-calculator"></i> Software de Cálculo</a></li>
+                <li><a href="index.html#contacto" class="nav-cta">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-hero" style="padding-bottom: 56px;">
+        <div class="hero-bg" style="background-image:url('img/imagen5.jpg')"></div>
+        <div class="container">
+            <div class="breadcrumb"><a href="index.html">Inicio</a> / Tienda</div>
+            <span class="eyebrow">Tienda</span>
+            <h1>Software, obra e ingeniería<br>en un solo lugar</h1>
+            <p class="lead">Licencias de nuestros programas, construcción, remodelaciones y diseños. Agregue lo que necesita a su pedido y envíelo por WhatsApp: le respondemos con la cotización.</p>
+            <div class="shop-steps">
+                <span><b>1</b> Elija</span><i class="fa-solid fa-chevron-right"></i>
+                <span><b>2</b> Agregue al pedido</span><i class="fa-solid fa-chevron-right"></i>
+                <span><b>3</b> Envíe por WhatsApp</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="section" style="padding-top: 50px;">
+        <div class="container">
+            <div id="promos"></div>
+            <div class="shop-bar">
+                <div class="chips trabajos-filtros" id="filtros"></div>
+                <label class="shop-search"><i class="fa-solid fa-magnifying-glass"></i><input id="buscar" type="search" placeholder="Buscar: casa, licencia, suelos..."></label>
+            </div>
+            <div id="catalogo"></div>
+            <p class="empty-msg" id="vacio" hidden>No encontramos nada con esa búsqueda. Escríbanos por WhatsApp y le ayudamos.</p>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="cta-band">
+                <h2>¿No encuentra lo que necesita?</h2>
+                <p>Hacemos todo tipo de trabajo de ingeniería civil y construcción. Cuéntenos su proyecto.</p>
+                <div class="hero-actions">
+                    <a href="https://wa.me/573116619341?text=Hola%2C%20quiero%20cotizar%20un%20trabajo" target="_blank" rel="noopener" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> Escribir por WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botón y panel del pedido -->
+    <a href="https://wa.me/573116619341" target="_blank" rel="noopener" class="float-wa" aria-label="Escribir por WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <button class="cart-fab" id="abrir-pedido" aria-label="Ver mi pedido"><i class="fa-solid fa-bag-shopping"></i><span id="contador">0</span></button>
+    <div class="cart-veil" id="velo"></div>
+    <aside class="cart" id="pedido" aria-label="Mi pedido">
+        <div class="cart-head"><strong>Mi pedido</strong><button type="button" id="cerrar-pedido" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button></div>
+        <div class="cart-items" id="items"></div>
+        <div class="cart-foot">
+            <div class="cart-total"><span>Total estimado</span><strong id="total">—</strong></div>
+            <p class="cart-note" id="nota-total"></p>
+            <div class="form-grid">
+                <div class="field"><label for="c-nombre">Nombre <b>*</b></label><input id="c-nombre" autocomplete="name"></div>
+                <div class="field"><label for="c-ciudad">Ciudad <b>*</b></label><input id="c-ciudad" autocomplete="address-level2"></div>
+                <div class="field full"><label for="c-detalle">Detalles (opcional)</label><input id="c-detalle" placeholder="Ej. casa de 2 pisos, 120 m², lote propio"></div>
+            </div>
+            <div class="form-error" id="c-error"></div>
+            <button type="button" class="btn btn-whatsapp btn-block" id="enviar"><i class="fa-brands fa-whatsapp"></i> Enviar pedido por WhatsApp</button>
+            <button type="button" class="btn btn-ghost btn-block" id="vaciar" style="margin-top:8px;">Vaciar pedido</button>
+        </div>
+    </aside>
+    <div class="toast" id="toast"></div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom" style="margin-top:0; border-top:0; padding-top:0;">
+                <span>&copy; <span data-anio>2026</span> SSING BUILD CODES SAS · Los precios son de referencia; el valor final se confirma con la cotización.</span>
+                <span><a href="index.html" style="color:inherit">Volver al inicio</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <script>document.write('<script src="promociones/promociones.js?t=' + Math.floor(Date.now() / 600000) + '"><\/script>');</script>
+    <script src="js/tienda.js?v=8"></script>
+    <script>
+        function siguienteFoto(img) {
+            const otras = img.dataset.otras ? img.dataset.otras.split("|") : [];
+            if (!otras.length) { img.remove(); return; }
+            img.dataset.otras = otras.slice(1).join("|");
+            img.src = otras[0];
+        }
+    </script>
+    <script>
+        (function () {
+            const promos = TIENDA.promosActivas();
+            const nombreDe = id => (TIENDA.producto(id) || { nombre: id }).nombre;
+
+            // Promociones tipo "paquete" (por $X lleve A + B + C) se venden como un producto más
+            const paquetes = promos.filter(pr => pr.tipo === "paquete").map(pr => {
+                const prods = (pr.productos || []).map(TIENDA.producto).filter(Boolean);
+                const suma = prods.every(p => p.precio) ? prods.reduce((s, p) => s + p.precio, 0) : null;
+                return { id: "promo-" + pr.id, categoria: "promos", nombre: pr.titulo, descripcion: pr.mensaje, precio: pr.precio ?? null,
+                         antes: suma && pr.precio && suma > pr.precio ? suma : null, unidad: pr.unidad || "", icono: "fa-gift",
+                         etiqueta: "Promoción", incluye: prods.map(p => p.nombre), esPaquete: true };
+            });
+            if (paquetes.length) TIENDA.categorias.unshift({ id: "promos", nombre: "Promociones", icono: "fa-gift" });
+            const P = paquetes.concat(TIENDA.productos.filter(p => p.activo !== false));
+            const pesos = n => new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 }).format(n);
+            const final = p => p.esPaquete ? p.precio : TIENDA.precioFinal(p);
+            const precioTxt = p => p.precio === 0 ? "Gratis" : (p.precio == null ? "Cotizar" : pesos(final(p)));
+            const regalosPromo = promos.filter(pr => pr.tipo === "regalo");
+            const conRegalo = p => regalosPromo.find(pr => (pr.compra || []).includes(p.id));
+
+            const promoTxt = p => { const pr = p.precio === 0 || p.esPaquete ? null : TIENDA.promoDe(p); return pr ? ` · ${pr.titulo} -${pr.descuento}%` : ""; };
+
+            /* ---------- Promociones activas ---------- */
+            document.getElementById("promos").innerHTML = promos.map(pr => {
+                const d = TIENDA.diasRestantes(pr);
+                const tipo = pr.tipo || "descuento";
+                const grande = tipo === "descuento" ? `-${pr.descuento}%` : (tipo === "regalo" ? '<i class="fa-solid fa-gift"></i>' : (pr.precio ? pesos(pr.precio) : "PROMO"));
+                return `<div class="promo-banner">
+                    <div class="promo-pct">${grande}</div>
+                    <div class="promo-txt"><strong>${pr.titulo}</strong><span>${pr.mensaje}</span></div>
+                    <div class="promo-end"><i class="fa-regular fa-clock"></i> ${d <= 1 ? "Termina hoy" : "Quedan " + d + " días"}</div>
+                </div>`;
+            }).join("");
+
+            /* ---------- Catálogo ---------- */
+            let filtro = "*";
+            const filtros = document.getElementById("filtros");
+            filtros.innerHTML = `<button class="chip activo" data-f="*">Todo</button>` +
+                TIENDA.categorias.map(c => `<button class="chip" data-f="${c.id}"><i class="fa-solid ${c.icono}"></i> ${c.nombre}</button>`).join("");
+            const inicial = new URLSearchParams(location.search).get("cat");
+            if (inicial && TIENDA.categorias.some(c => c.id === inicial)) filtro = inicial;
+
+            function tarjeta(p) {
+                // Foto: img/tienda/<nombre del producto>.jpg (o .png); si no existe, la "imagen" de tienda.js; si no, el ícono
+                const base = "img/tienda/" + encodeURIComponent(p.nombre);
+                const fotos = [base + ".jpg", base + ".png", base + ".jpeg", base + ".webp"].concat(p.imagen ? [p.imagen] : []);
+                const media = `<img src="${fotos[0]}" data-otras="${fotos.slice(1).join("|")}" alt="" loading="lazy" onerror="siguienteFoto(this)">`;
+                const pr = p.precio === 0 || p.esPaquete ? null : TIENDA.promoDe(p);
+                const antes = pr && p.precio ? p.precio : p.antes;
+                const reg = conRegalo(p);
+                const tag = pr ? `-${pr.descuento}%` : (reg ? '<i class="fa-solid fa-gift"></i> Con regalo' : "");
+                return `<article class="product${pr || reg || p.esPaquete ? " en-promo" : ""}" data-id="${p.id}">
+                    <div class="product-media"><i class="fa-solid ${p.icono || "fa-cube"}"></i>${media}${p.etiqueta ? `<span class="ribbon">${p.etiqueta}</span>` : ""}${tag ? `<span class="promo-tag">${tag}</span>` : ""}</div>
+                    <div class="product-body">
+                        <h3>${p.nombre}</h3>
+                        <p>${p.descripcion}</p>
+                        ${p.incluye && p.incluye.length ? `<ul>${p.incluye.map(t => `<li><i class="fa-solid fa-check"></i>${t}</li>`).join("")}</ul>` : ""}
+                        <div class="product-foot">
+                            <div class="price">${antes ? `<s>${pesos(antes)}</s>` : ""}<strong class="${p.precio == null ? "cotizar" : ""}">${precioTxt(p)}</strong>${pr && p.precio == null ? `<small class="promo-note">-${pr.descuento}% en su cotización</small>` : ""}${p.unidad ? `<small>${p.unidad}</small>` : ""}</div>
+                            <div class="product-actions">
+                                ${p.enlace ? `<a href="${p.enlace}" class="icon-btn" title="Ver más" aria-label="Ver más"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>` : ""}
+                                <button type="button" class="btn btn-primary btn-sm" data-add="${p.id}"><i class="fa-solid fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>`;
+            }
+
+            function pintar() {
+                const q = document.getElementById("buscar").value.trim().toLowerCase()
+                    .normalize("NFD").replace(/[̀-ͯ]/g, "");
+                const norm = t => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+                let html = "", hay = false;
+                TIENDA.categorias.forEach(c => {
+                    if (filtro !== "*" && filtro !== c.id) return;
+                    const lista = P.filter(p => p.categoria === c.id &&
+                        (!q || norm(p.nombre + " " + p.descripcion + " " + (p.incluye || []).join(" ")).includes(q)));
+                    if (!lista.length) return;
+                    hay = true;
+                    const extra = c.id === "software" && TIENDA.beneficios ? `<div class="benefits">${TIENDA.beneficios.map(b =>
+                        `<div><i class="fa-solid ${b[0]}"></i><span>${b[1]}</span><strong>${b[2]}</strong></div>`).join("")}</div>` : "";
+                    html += `<div class="shop-group"><h2><i class="fa-solid ${c.icono}"></i> ${c.nombre}<small>${lista.length}</small></h2>
+                             ${extra}<div class="products">${lista.map(tarjeta).join("")}</div></div>`;
+                });
+                document.getElementById("catalogo").innerHTML = html;
+                document.getElementById("vacio").hidden = hay;
+                filtros.querySelectorAll("button").forEach(b => b.classList.toggle("activo", b.dataset.f === filtro));
+                marcarAgregados();
+            }
+
+            filtros.addEventListener("click", e => { const b = e.target.closest("button"); if (b) { filtro = b.dataset.f; pintar(); } });
+            document.getElementById("buscar").addEventListener("input", pintar);
+
+            /* ---------- Pedido ---------- */
+            let pedido = {};
+            try { pedido = JSON.parse(localStorage.getItem("ssing-pedido") || "{}"); } catch (e) {}
+            const guardar = () => { try { localStorage.setItem("ssing-pedido", JSON.stringify(pedido)); } catch (e) {} };
+            const panel = document.getElementById("pedido"), velo = document.getElementById("velo");
+            const abrir = () => { panel.classList.add("open"); velo.classList.add("open"); };
+            const cerrar = () => { panel.classList.remove("open"); velo.classList.remove("open"); };
+            document.getElementById("abrir-pedido").onclick = abrir;
+            document.getElementById("cerrar-pedido").onclick = cerrar;
+            velo.onclick = cerrar;
+            addEventListener("keydown", e => { if (e.key === "Escape") cerrar(); });
+
+            const toast = document.getElementById("toast");
+            function aviso(t) { toast.textContent = t; toast.classList.add("show"); clearTimeout(aviso.t); aviso.t = setTimeout(() => toast.classList.remove("show"), 2600); }
+
+            function marcarAgregados() {
+                document.querySelectorAll("[data-add]").forEach(b => {
+                    const en = !!pedido[b.dataset.add];
+                    b.classList.toggle("added", en);
+                    b.innerHTML = en ? '<i class="fa-solid fa-check"></i> En el pedido' : '<i class="fa-solid fa-plus"></i> Agregar';
+                });
+            }
+
+            // Regalos: si el pedido tiene todo lo que pide una promoción "regalo"
+            function regalosDelPedido(ids) {
+                return regalosPromo.filter(pr => (pr.compra || []).length && pr.compra.every(id => ids.includes(id)))
+                    .flatMap(pr => (pr.regalo || []).map(nombreDe).concat(pr.regaloTexto ? [pr.regaloTexto] : []));
+            }
+
+            function pintarPedido() {
+                const ids = Object.keys(pedido).filter(id => P.some(p => p.id === id));
+                const n = ids.reduce((s, id) => s + pedido[id], 0);
+                const cont = document.getElementById("contador");
+                cont.textContent = n;
+                document.getElementById("abrir-pedido").classList.toggle("has", n > 0);
+                const items = document.getElementById("items");
+                if (!ids.length) {
+                    items.innerHTML = `<div class="cart-empty"><i class="fa-solid fa-bag-shopping"></i><p>Su pedido está vacío.<br>Agregue productos o servicios.</p></div>`;
+                } else {
+                    items.innerHTML = ids.map(id => {
+                        const p = P.find(x => x.id === id);
+                        return `<div class="cart-item">
+                            <div class="ci-ico"><i class="fa-solid ${p.icono || "fa-cube"}"></i></div>
+                            <div class="ci-info"><strong>${p.nombre}</strong><span>${precioTxt(p)}${p.unidad ? " · " + p.unidad : ""}${promoTxt(p)}</span></div>
+                            <div class="qty"><button type="button" data-menos="${id}" aria-label="Menos">−</button><span>${pedido[id]}</span><button type="button" data-mas="${id}" aria-label="Más">+</button></div>
+                        </div>`;
+                    }).join("") + regalosDelPedido(ids).map(nombre => `<div class="cart-item regalo">
+                            <div class="ci-ico"><i class="fa-solid fa-gift"></i></div>
+                            <div class="ci-info"><strong>${nombre}</strong><span>Regalo de la promoción · Gratis</span></div>
+                        </div>`).join("");
+                }
+                const conPrecio = ids.filter(id => P.find(p => p.id === id).precio != null);
+                const sinPrecio = ids.length - conPrecio.length;
+                const total = conPrecio.reduce((s, id) => s + final(P.find(p => p.id === id)) * pedido[id], 0);
+                document.getElementById("total").textContent = !ids.length ? "—"
+                    : total > 0 ? pesos(total) + (sinPrecio ? " + cotización" : "")
+                    : (sinPrecio ? "Por cotizar" : "Gratis");
+                document.getElementById("nota-total").textContent = sinPrecio
+                    ? `${sinPrecio} ${sinPrecio === 1 ? "ítem" : "ítems"} por cotizar: le enviamos el valor por WhatsApp.` : "";
+                marcarAgregados();
+                guardar();
+            }
+
+            document.addEventListener("click", e => {
+                const add = e.target.closest("[data-add]"), mas = e.target.closest("[data-mas]"), menos = e.target.closest("[data-menos]");
+                if (add) {
+                    const id = add.dataset.add;
+                    if (pedido[id]) { abrir(); return; }
+                    pedido[id] = 1;
+                    pintarPedido();
+                    aviso("Agregado a su pedido");
+                    const fab = document.getElementById("abrir-pedido");
+                    fab.classList.remove("bump"); void fab.offsetWidth; fab.classList.add("bump");
+                }
+                if (mas) { pedido[mas.dataset.mas]++; pintarPedido(); }
+                if (menos) { const id = menos.dataset.menos; if (--pedido[id] <= 0) delete pedido[id]; pintarPedido(); }
+            });
+            document.getElementById("vaciar").onclick = () => { pedido = {}; pintarPedido(); };
+
+            try {
+                const c = JSON.parse(localStorage.getItem("ssing-cliente") || "{}");
+                ["nombre", "ciudad"].forEach(k => { if (c[k]) document.getElementById("c-" + k).value = c[k]; });
+            } catch (e) {}
+
+            document.getElementById("enviar").onclick = () => {
+                const err = document.getElementById("c-error");
+                const ids = Object.keys(pedido).filter(id => P.some(p => p.id === id));
+                const nombre = document.getElementById("c-nombre").value.trim();
+                const ciudad = document.getElementById("c-ciudad").value.trim();
+                const detalle = document.getElementById("c-detalle").value.trim();
+                if (!ids.length) { err.textContent = "Agregue al menos un producto o servicio."; return; }
+                if (!nombre || !ciudad) { err.textContent = "Escriba su nombre y su ciudad."; return; }
+                err.textContent = "";
+                try { localStorage.setItem("ssing-cliente", JSON.stringify({ nombre, ciudad })); } catch (e) {}
+                const lineas = ids.map(id => { const p = P.find(x => x.id === id); return `• ${pedido[id]} × ${p.nombre} — ${precioTxt(p)}${p.unidad ? " (" + p.unidad + ")" : ""}${promoTxt(p)}`; })
+                    .concat(regalosDelPedido(ids).map(n => `• 🎁 REGALO: ${n} — Gratis`));
+                const texto = ["PEDIDO TIENDA SSING", `Nombre: ${nombre}`, `Ciudad: ${ciudad}`, "", ...lineas, "",
+                    `Total estimado: ${document.getElementById("total").textContent}`, detalle ? `Detalles: ${detalle}` : ""].filter((l, i, a) => l !== "" || a[i - 1] !== "").join("\n");
+                window.open(`https://wa.me/${TIENDA.whatsapp}?text=${encodeURIComponent(texto)}`, "_blank", "noopener");
+            };
+
+            pintar();
+            pintarPedido();
+        })();
+    </script>
+    <script src="js/main.js?v=7"></script>
+    <script src="js/temas.js?v=7"></script>
+</body>
+</html>
