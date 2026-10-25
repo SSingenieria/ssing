@@ -9,17 +9,17 @@ const PROMOCIONES = [
     "id": "black-friday",
     "activo": true,
     "titulo": "Black Friday",
-    "mensaje": "20 % de descuento en todas las licencias de CalculosSSING. Solo hoy.",
+    "mensaje": "20 % de descuento en todas las licencias de CalculosSSING y SSING-DETALLES. Solo hoy.",
     "tipo": "descuento",
     "dias": ["black_friday"],
     "descuento": 20,
-    "aplica": ["combos", "software", "calculos", "adicionales"]
+    "aplica": ["combos", "software", "calculos", "detalles", "adicionales"]
   },
   {
     "id": "navidad",
     "activo": true,
     "titulo": "Regalo de Navidad",
-    "mensaje": "Compre el Paquete TODO anual y reciba gratis los Reportes en Word con su logo.",
+    "mensaje": "Compre CalculosSSING TODO anual y reciba gratis los Reportes en Word con su logo.",
     "tipo": "regalo",
     "dias": ["12-24", "12-25"],
     "compra": ["todo-anual"],
@@ -50,11 +50,11 @@ const PROMOCIONES = [
     "id": "dia-ingeniero",
     "activo": true,
     "titulo": "Día del Ingeniero",
-    "mensaje": "17 % en todas las licencias de CalculosSSING para celebrar a los ingenieros.",
+    "mensaje": "17 % en todas las licencias de CalculosSSING y SSING-DETALLES para celebrar a los ingenieros.",
     "tipo": "descuento",
     "dias": ["08-17"],
     "descuento": 17,
-    "aplica": ["combos", "software", "calculos", "adicionales"]
+    "aplica": ["combos", "software", "calculos", "detalles", "adicionales"]
   },
   {
     "id": "amor-amistad",

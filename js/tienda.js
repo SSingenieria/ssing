@@ -25,11 +25,12 @@ const TIENDA = {
     beneficios: [
         ["fa-desktop", "Segundo equipo de la misma persona", "50 % del precio"],
         ["fa-rotate", "Renovación antes de vencer", "20 % de descuento"],
-        ["fa-flask", "Prueba de 1 día (solo Zapatas, con marca de agua)", "Gratis"]
+        ["fa-plug-circle-plus", "Agregar otro programa o sección a su licencia", "Sin reinstalar: se activa por internet"],
+        ["fa-flask", "Prueba de 1 día (CalculosSSING, solo Zapatas, con marca de agua)", "Gratis"]
     ],
 
     // Orden de las secciones cuando el cliente pulsa "Todo" (las que no estén aquí salen al final)
-    ordenTodo: ["promos", "combos", "calculos", "adicionales", "construccion", "ingenieria", "software"],
+    ordenTodo: ["promos", "combos", "calculos", "detalles", "adicionales", "construccion", "ingenieria", "software"],
 
     categorias: [
         // El orden de esta lista es el de los botones de arriba (el orden en "Todo" está en ordenTodo)
@@ -37,19 +38,48 @@ const TIENDA = {
         { id: "ingenieria",   nombre: "Diseño e ingeniería",     icono: "fa-compass-drafting" },
         { id: "combos",       nombre: "Combos (más ahorro)",     icono: "fa-boxes-stacked" },
         { id: "calculos",     nombre: "CalculosSSING por categoría", icono: "fa-calculator" },
-        { id: "adicionales",  nombre: "Paquetes adicionales de CalculosSSING", icono: "fa-puzzle-piece" },
+        { id: "detalles",     nombre: "SSING-DETALLES por sección", icono: "fa-diagram-project" },
+        { id: "adicionales",  nombre: "Paquetes adicionales", icono: "fa-puzzle-piece" },
         { id: "software",     nombre: "Prueba gratis y otros programas", icono: "fa-laptop-code" }
     ],
     productos: [
         /* ---------------- COMBOS (MÁS AHORRO) ---------------- */
-        { id: "todo-anual", categoria: "combos", nombre: "CalculosSSING · Paquete TODO anual", precio: 1090000, antes: 2035000, unidad: "por año", etiqueta: "Mejor valor",
+        { id: "completo-anual", categoria: "combos", nombre: "SSING BUILD CODE COMPLETO · anual", precio: 1490000, antes: 1700000, unidad: "por año", etiqueta: "Todo incluido",
+          icono: "fa-cubes",
+          descripcion: "Los dos programas con todo: CalculosSSING TODO + SSING-DETALLES TODO. Una sola licencia; inicia sesión una vez en SSING Inicio y abre el que necesite. Ahorra $210.000.",
+          incluye: ["Las 12 categorías y 33 cálculos de CalculosSSING", "Las 3 secciones de SSING-DETALLES", "Un solo instalador y una sola licencia por equipo", "Actualizaciones y soporte"] },
+        { id: "completo-mensual", categoria: "combos", nombre: "SSING BUILD CODE COMPLETO · mensual", precio: 170000, unidad: "por mes",
+          icono: "fa-cubes",
+          descripcion: "Los dos programas con todo, pagando mes a mes. (12 meses suman $2.040.000: el pago anual le ahorra $550.000.)",
+          incluye: ["CalculosSSING TODO", "SSING-DETALLES TODO", "Actualizaciones y soporte"] },
+        { id: "todo-anual", categoria: "combos", nombre: "CalculosSSING TODO · anual", precio: 1150000, antes: 2255000, unidad: "por año", etiqueta: "Mejor valor",
           icono: "fa-calculator", imagen: "img/imagen2.jpg", enlace: "software.html",
-          descripcion: "Las 11 categorías y los 32 cálculos, con planos DXF, y todo lo que salga después sin costo adicional. Ahorra $945.000.",
-          incluye: ["32 cálculos en 11 categorías", "Memoria en PDF con fórmulas y verificaciones", "Plano DXF en todas las categorías", "Cálculos nuevos sin costo durante la vigencia", "Soporte por WhatsApp y correo"] },
-        { id: "todo-mensual", categoria: "combos", nombre: "CalculosSSING · Paquete TODO mensual", precio: 130000, unidad: "por mes",
+          descripcion: "Las 12 categorías y los 33 cálculos, con planos DXF, y todo lo que salga después sin costo adicional. Ahorra $1.105.000.",
+          incluye: ["33 cálculos en 12 categorías", "Memoria en PDF con fórmulas y verificaciones", "Plano DXF en todas las categorías", "Cálculos nuevos sin costo durante la vigencia", "Soporte por WhatsApp y correo"] },
+        { id: "todo-mensual", categoria: "combos", nombre: "CalculosSSING TODO · mensual", precio: 140000, unidad: "por mes",
           icono: "fa-calendar-days", imagen: "img/imagen2.jpg", enlace: "software.html",
-          descripcion: "Todo el programa pagando mes a mes. (12 meses suman $1.560.000: el pago anual le ahorra $470.000.)",
-          incluye: ["32 cálculos en 11 categorías", "Memoria en PDF y plano DXF", "Actualizaciones y soporte"] },
+          descripcion: "Todo CalculosSSING pagando mes a mes. (12 meses suman $1.680.000: el pago anual le ahorra $530.000.)",
+          incluye: ["33 cálculos en 12 categorías", "Memoria en PDF y plano DXF", "Actualizaciones y soporte"] },
+        { id: "det-todo-anual", categoria: "combos", nombre: "SSING-DETALLES TODO · anual", precio: 550000, antes: 720000, unidad: "por año", etiqueta: "Nuevo",
+          icono: "fa-diagram-project",
+          descripcion: "Las 3 secciones: crear el modelo ETABS, leerlo para DXF y la memoria de cálculo. Ahorra $170.000.",
+          incluye: ["Crear modelo ETABS", "Leer ETABS para DXF", "Memoria de cálculo con su empresa y su logo", "Requiere ETABS 18 o más nuevo"] },
+        { id: "det-todo-mensual", categoria: "combos", nombre: "SSING-DETALLES TODO · mensual", precio: 65000, unidad: "por mes",
+          icono: "fa-diagram-project",
+          descripcion: "Las 3 secciones pagando mes a mes. (12 meses suman $780.000: el pago anual le ahorra $230.000.)",
+          incluye: ["Crear modelo ETABS", "Leer ETABS para DXF", "Memoria de cálculo", "Requiere ETABS 18 o más nuevo"] },
+
+        /* ---------------- SSING-DETALLES POR SECCIÓN (precio por 1 año) ---------------- */
+        { id: "det-modelo", categoria: "detalles", nombre: "Crear modelo ETABS", precio: 280000, unidad: "por año", icono: "fa-building",
+          descripcion: "Pórticos de concreto, pórticos metálicos y cerchas metálicas: ejes, niveles, secciones, losas, cargas, espectro NSR-10 y combinaciones, listo para correr. NSR-10 Títulos A y B.",
+          incluye: ["Pórticos de concreto y metálicos", "Cerchas metálicas", "Cargas, espectro NSR-10 y combinaciones", "Requiere ETABS 18 o más nuevo"] },
+        { id: "det-dxf", categoria: "detalles", nombre: "Leer ETABS para DXF", precio: 240000, unidad: "por año", icono: "fa-compass-drafting",
+          descripcion: "Reacciones en la base (para sus cimentaciones en CalculosSSING) y detalles de refuerzo de vigas y columnas en DXF. NSR-10 Título C.",
+          incluye: ["Reacciones en la base", "Despiece de vigas y columnas en DXF", "Listo para AutoCAD"] },
+        { id: "det-memoria", categoria: "detalles", nombre: "Memoria de cálculo ETABS", precio: 200000, unidad: "por año", icono: "fa-file-lines",
+          descripcion: "Cortante basal (ajuste dinámico, FHE, derivas y torsión) y memoria completa en Word y PDF con las tablas de ETABS. NSR-10 A.3, A.5 y A.6.",
+          incluye: ["Cortante basal, derivas y torsión", "Memoria en Word y PDF", "INCLUYE su empresa, su logo y su portada"] },
+
         { id: "calc-prueba", categoria: "software", nombre: "CalculosSSING · Prueba 1 día", precio: 0, unidad: "1 día · solo Zapatas",
           icono: "fa-flask", enlace: "software.html",
           descripcion: "Pruebe el programa antes de comprar: cálculos de Zapatas durante 1 día, con marca de agua.",
@@ -58,14 +88,14 @@ const TIENDA = {
           icono: "fa-file-word", etiqueta: "Adicional",
           descripcion: "Se agrega a cualquier licencia de CalculosSSING (Paquete TODO o por categoría): además del PDF, reciba la memoria en Word editable con el nombre y el logo de su empresa.",
           incluye: ["Memoria en Word editable", "Su empresa y su logo en los encabezados", "Para todas las categorías que tenga", "Requiere una licencia de CalculosSSING"] },
+        { id: "det-memoria-medida", categoria: "adicionales", nombre: "SSING-DETALLES · Memoria a su medida", precio: 300000, unidad: "pago único", etiqueta: "Adicional",
+          icono: "fa-wand-magic-sparkles",
+          descripcion: "Ajustamos la memoria a su gusto: capítulos, textos, orden, formato y estilo de su empresa. Queda lista dentro de su programa.",
+          incluye: ["Capítulos y textos a su gusto", "Formato y estilo de su empresa", "Queda instalada en su programa", "Requiere SSING-DETALLES"] },
         { id: "memorias", categoria: "software", nombre: "MemoriasSSING · Generador de memorias de cálculo", precio: null, unidad: "licencia", etiqueta: "Nuevo",
           icono: "fa-file-lines",
           descripcion: "Arma la memoria de cálculo completa de su proyecto en Word y PDF (concreto y estructura metálica): usted pone los datos y las imágenes, el programa hace el documento.",
           incluye: ["Portada con su empresa y su logo", "Índice y tabla de figuras automáticos", "Exporta a Word y PDF", "Textos con referencias NSR-10", "Licencia para 1 computador"] },
-        { id: "combo", categoria: "combos", nombre: "Combo CalculosSSING + MemoriasSSING", precio: null, unidad: "licencias", etiqueta: "Combo",
-          icono: "fa-boxes-stacked",
-          descripcion: "Calcule con CalculosSSING y entregue la memoria completa con MemoriasSSING. Los dos programas juntos.",
-          incluye: ["Licencia de CalculosSSING", "Licencia de MemoriasSSING", "Soporte y actualizaciones"] },
         { id: "software-medida", categoria: "software", nombre: "Software a la medida", precio: null,
           icono: "fa-code", enlace: "servicio.html?id=software",
           descripcion: "Convertimos su hoja de cálculo o procedimiento en un programa propio de su empresa.",
@@ -105,8 +135,8 @@ const TIENDA = {
         { id: "cat-piscinas", categoria: "calculos", nombre: "Piscinas", precio: 220000, unidad: "por año · 1 cálculo", icono: "fa-person-swimming",
           descripcion: "ACI 350 · ACI 350.3 · AIS 180 · NSR-10. Memoria en PDF y plano DXF.",
           incluye: ["Rectangular con zona baja, rampa y zona honda"] },
-        { id: "cat-boxculvert", categoria: "calculos", nombre: "Box culvert", precio: null, unidad: "por año", etiqueta: "Próximamente", icono: "fa-archway",
-          descripcion: "Alcantarilla de cajón en concreto reforzado: peso del relleno, carga vehicular y empuje lateral del suelo. Memoria en PDF y plano DXF.",
+        { id: "cat-boxculvert", categoria: "calculos", nombre: "Box culvert", precio: 220000, unidad: "por año · 1 cálculo", etiqueta: "Nuevo", icono: "fa-archway",
+          descripcion: "CCP-14 · NSR-10 C y Título H. Alcantarilla de cajón en concreto reforzado: relleno, carga vehicular y empuje de tierras. Memoria en PDF y plano DXF.",
           incluye: ["Cajón en concreto reforzado", "Cargas de relleno, vehículo y empuje", "Memoria en PDF y plano DXF"] },
 
         /* ---------------- CONSTRUCCIÓN ---------------- */

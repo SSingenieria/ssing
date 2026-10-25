@@ -4,12 +4,19 @@ Pegue aquí la foto de cada producto con el nombre EXACTO de abajo + .jpg
 (también sirve .png). Si no hay foto, sale la imagen de siempre o el ícono.
 Si cambia el nombre del producto en js\tienda.js, cambie también el nombre de la foto.
 
-CalculosSSING · Paquete TODO anual.jpg
-CalculosSSING · Paquete TODO mensual.jpg
+SSING BUILD CODE COMPLETO · anual.jpg
+SSING BUILD CODE COMPLETO · mensual.jpg
+CalculosSSING TODO · anual.jpg
+CalculosSSING TODO · mensual.jpg
+SSING-DETALLES TODO · anual.jpg
+SSING-DETALLES TODO · mensual.jpg
+Crear modelo ETABS.jpg
+Leer ETABS para DXF.jpg
+Memoria de cálculo ETABS.jpg
 CalculosSSING · Prueba 1 día.jpg
 Paquete adicional · Reportes en Word con su logo.jpg
+SSING-DETALLES · Memoria a su medida.jpg
 MemoriasSSING · Generador de memorias de cálculo.jpg
-Combo CalculosSSING + MemoriasSSING.jpg
 Software a la medida.jpg
 Zapatas.jpg
 Vigas de cimentación.jpg
