@@ -1,7 +1,7 @@
 ﻿FOTOS DE LA TIENDA
 ==================
 Pegue aquí la foto de cada producto con el nombre EXACTO de abajo + .jpg
-(también sirve .png). Si no hay foto, sale la imagen de siempre o el ícono.
+(también sirve .png). Tamaño recomendado: 1200 x 540. Si no hay foto, sale el ícono.
 Si cambia el nombre del producto en js\tienda.js, cambie también el nombre de la foto.
 
 SSING BUILD CODE COMPLETO · anual.jpg
@@ -10,9 +10,8 @@ CalculosSSING TODO · anual.jpg
 CalculosSSING TODO · mensual.jpg
 SSING-DETALLES TODO · anual.jpg
 SSING-DETALLES TODO · mensual.jpg
-Crear modelo ETABS.jpg
-Leer ETABS para DXF.jpg
-Memoria de cálculo ETABS.jpg
+Modelo ETABS + cortante basal + memoria de cálculo.jpg
+Detalles de refuerzo con cualquier modelo (DXF y reporte de diseño).jpg
 CalculosSSING · Prueba 1 día.jpg
 Paquete adicional · Reportes en Word con su logo.jpg
 SSING-DETALLES · Memoria a su medida.jpg
