@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self'; connect-src 'self' https://ssing-obra.ssingbuildcodes.workers.dev; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CalculosSSING | Solicitar prueba o licencia</title>
     <meta name="description" content="Solicite su prueba gratis o licencia de CalculosSSING, el software de memorias de cálculo estructural bajo NSR-10 y ACI 318.">
@@ -10,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 
@@ -97,7 +99,7 @@
                     <div class="field"><label for="telefono">Teléfono / WhatsApp <b>*</b></label><input id="telefono" type="tel" autocomplete="tel" placeholder="Ej. 300 123 4567"></div>
                     <div class="field full"><label for="correo">Correo <b>*</b></label><input id="correo" type="email" autocomplete="email" placeholder="Ej. juan@correo.com"></div>
                     <div class="field"><label for="empresa">Empresa</label><input id="empresa" autocomplete="organization" placeholder="Opcional"></div>
-                    <div class="field"><label for="ciudad">Ciudad <b>*</b></label><input id="ciudad" autocomplete="address-level2" placeholder="Ej. Montería"></div>
+                    <div class="field"><label for="ciudad">Ciudad</label><input id="ciudad" autocomplete="address-level2" placeholder="Opcional"></div>
                     <div class="field"><label for="profesion">Profesión</label>
                         <select id="profesion">
                             <option>Ingeniero(a) civil</option><option>Arquitecto(a)</option><option>Constructor(a) / Maestro de obra</option><option>Estudiante</option><option>Otra</option>
@@ -106,7 +108,9 @@
                     <div class="field"><label for="equipo">Código del equipo</label><input id="equipo" placeholder="Si ya lo instaló"><small>Aparece al abrir el programa.</small></div>
                 </div>
 
-                <label class="terms"><input type="checkbox" id="acepto"><span>Acepto los <button type="button" id="ver-terminos">términos y condiciones</button> y autorizo el tratamiento de mis datos.</span></label>
+                <label class="terms"><input type="checkbox" id="acepto-terminos"><span>Acepto los <a href="legal.html#terminos" target="_blank" rel="noopener">términos y condiciones</a> (<button type="button" id="ver-terminos">ver los del programa</button>) y la <a href="legal.html#reembolsos" target="_blank" rel="noopener">política de reembolsos y retracto</a>. <b>*</b></span></label>
+                <label class="terms"><input type="checkbox" id="acepto-datos"><span>Autorizo el tratamiento de mis datos personales según la <a href="legal.html#privacidad" target="_blank" rel="noopener">política de privacidad</a> (Ley 1581 de 2012). <b>*</b></span></label>
+                <label class="terms"><input type="checkbox" id="acepto-novedades"><span>Quiero recibir novedades y promociones (opcional).</span></label>
                 <div class="form-error" id="error" role="alert"></div>
 
                 <div class="form-actions">
@@ -116,7 +120,7 @@
                         <button type="button" class="btn btn-ghost" data-medio="copiar"><i class="fa-regular fa-copy"></i> Copiar mensaje</button>
                     </div>
                 </div>
-                <p class="legal">Sus datos se usan para crear su licencia, darle soporte e informarle de novedades (Ley 1581 de 2012).</p>
+                <p class="legal">Sus datos se usan para crear su licencia y darle soporte; las novedades, solo si las pide. Al enviar queda registrada su aceptación (fecha, hora e IP). <a href="legal.html#privacidad" target="_blank" rel="noopener">Sus derechos</a>.</p>
             </form>
         </div>
     </section>
@@ -135,10 +139,12 @@
                 <span>&copy; <span data-anio>2026</span> SSING BUILD CODES SAS · WhatsApp 311 661 9341 · torrescastro738@gmail.com</span>
                 <span><a href="index.html" style="color:inherit">Volver al inicio</a></span>
             </div>
+        <div class="footer-legal"><a href="legal.html#terminos">Términos y condiciones</a><a href="legal.html#privacidad">Privacidad y datos</a><a href="legal.html#cookies">Cookies</a><a href="legal.html#reembolsos">Reembolsos y retracto</a></div>
         </div>
     </footer>
 
     <script src="js/terminos.js?v=7"></script>
+    <script src="js/legal.js?v=1"></script>
     <script>
         (function () {
             const WHATSAPP = "573116619341";
@@ -162,7 +168,7 @@
             // Recordar los datos que ya escribió (solo en su navegador)
             const ids = ["nombre", "documento", "telefono", "correo", "empresa", "ciudad", "profesion", "equipo"];
             try {
-                const previos = JSON.parse(localStorage.getItem("ssing-solicitud") || "{}");
+                const previos = SSING_LEGAL.puedeGuardar() ? JSON.parse(localStorage.getItem("ssing-solicitud") || "{}") : {};
                 ids.forEach(k => { if (previos[k]) document.getElementById(k).value = previos[k]; });
             } catch (e) {}
 
@@ -174,7 +180,7 @@
                 const d = {};
                 ids.forEach(k => d[k] = document.getElementById(k).value.trim());
                 document.querySelectorAll(".field input").forEach(i => i.classList.remove("error"));
-                const faltan = [["nombre", "nombre"], ["telefono", "teléfono"], ["correo", "correo"], ["ciudad", "ciudad"]].filter(([k]) => !d[k]);
+                const faltan = [["nombre", "nombre"], ["telefono", "teléfono"], ["correo", "correo"]].filter(([k]) => !d[k]);
                 if (faltan.length) {
                     faltan.forEach(([k]) => document.getElementById(k).classList.add("error"));
                     err.textContent = "Falta: " + faltan.map(f => f[1]).join(", ") + ".";
@@ -182,7 +188,9 @@
                 }
                 if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.correo)) { document.getElementById("correo").classList.add("error"); err.textContent = "Revise el correo."; return null; }
                 if (d.telefono.replace(/\D/g, "").length < 7) { document.getElementById("telefono").classList.add("error"); err.textContent = "Revise el teléfono."; return null; }
-                if (!document.getElementById("acepto").checked) { err.textContent = "Debe aceptar los términos y condiciones para enviar la solicitud."; return null; }
+                if (!document.getElementById("acepto-terminos").checked) { err.textContent = "Para enviar la solicitud debe aceptar los términos y condiciones y la política de reembolsos."; return null; }
+                if (!document.getElementById("acepto-datos").checked) { err.textContent = "Para enviar la solicitud debe autorizar el tratamiento de sus datos (sin él no podemos crear su licencia)."; return null; }
+                d.novedades = document.getElementById("acepto-novedades").checked;
                 err.textContent = "";
                 d.tipo = document.querySelector("input[name=tipo]:checked").value;
                 return d;
@@ -193,7 +201,9 @@
                 const filas = [["tipo", "Tipo"], ["nombre", "Nombre"], ["documento", "Cédula/NIT"], ["telefono", "Teléfono"], ["correo", "Correo"],
                                ["empresa", "Empresa"], ["ciudad", "Ciudad"], ["profesion", "Profesión"], ["equipo", "Código del equipo"]];
                 return ["SOLICITUD CalculosSSING", ...filas.map(([k, t]) => `${t}: ${d[k] || ""}`),
-                        "Términos y autorización de datos: ACEPTADOS", "Enviado desde: página web"].join("\n");
+                        `Términos, reembolsos y retracto (versión ${SSING_LEGAL.VERSION}): ACEPTADOS`,
+                        `Tratamiento de datos (Ley 1581): AUTORIZADO`, `Novedades y promociones: ${d.novedades ? "SÍ" : "NO"}`,
+                        "Enviado desde: página web"].join("\n");
             }
 
             async function copiar(t) {
@@ -207,7 +217,8 @@
             document.querySelectorAll("[data-medio]").forEach(b => b.addEventListener("click", async () => {
                 const d = datos();
                 if (!d) return;
-                try { const g = {}; ids.forEach(k => g[k] = d[k]); localStorage.setItem("ssing-solicitud", JSON.stringify(g)); } catch (e) {}
+                if (SSING_LEGAL.puedeGuardar()) { try { const g = {}; ids.forEach(k => g[k] = d[k]); localStorage.setItem("ssing-solicitud", JSON.stringify(g)); } catch (e) {} }
+                SSING_LEGAL.registrar("Solicitud de software", d);             // prueba de la aceptación (fecha, hora, IP)
                 const texto = mensaje(d);
                 const medio = b.dataset.medio;
                 if (medio === "whatsapp") {

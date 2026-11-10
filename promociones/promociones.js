@@ -1,19 +1,29 @@
 /* =========================================================
    PROMOCIONES Y TEMAS FESTIVOS DE LA PÁGINA
-   Archivo creado con el GENERADOR DE PROMOCIONES (2026-10-22).
+   Archivo creado con el GENERADOR DE PROMOCIONES (2026-10-22; actualizado 2026-11-10).
    No lo edite a mano: ábralo con el generador, cambie y vuelva a guardarlo.
    Para publicar: en GitHub arrastre la carpeta "promociones" de "2 ACTUALIZACION - subir solo esto".
    ========================================================= */
 const PROMOCIONES = [
   {
+    "id": "lanzamiento-revit",
+    "activo": true,
+    "titulo": "Lanzamiento SSING para Revit",
+    "mensaje": "25 % en los módulos de SSING para Revit, el Revit TODO, el Paquete BIM y Exportar a Revit.",
+    "tipo": "descuento",
+    "dias": ["2026-11-15:2026-12-15"],
+    "descuento": 25,
+    "aplica": ["revit", "rev-todo-anual", "rev-todo-mensual", "bim-anual", "bim-mensual", "det-revit"]
+  },
+  {
     "id": "black-friday",
     "activo": true,
     "titulo": "Black Friday",
-    "mensaje": "20 % de descuento en todas las licencias de CalculosSSING y SSING-DETALLES. Solo hoy.",
+    "mensaje": "20 % de descuento en todas las licencias de CalculosSSING, SSING-DETALLES y SSING para Revit. Solo hoy.",
     "tipo": "descuento",
     "dias": ["black_friday"],
     "descuento": 20,
-    "aplica": ["combos", "software", "calculos", "detalles", "adicionales"]
+    "aplica": ["combos", "obra", "software", "calculos", "detalles", "revit", "adicionales"]
   },
   {
     "id": "navidad",
@@ -50,11 +60,11 @@ const PROMOCIONES = [
     "id": "dia-ingeniero",
     "activo": true,
     "titulo": "Día del Ingeniero",
-    "mensaje": "17 % en todas las licencias de CalculosSSING y SSING-DETALLES para celebrar a los ingenieros.",
+    "mensaje": "17 % en todas las licencias de CalculosSSING, SSING-DETALLES y SSING para Revit para celebrar a los ingenieros.",
     "tipo": "descuento",
     "dias": ["08-17"],
     "descuento": 17,
-    "aplica": ["combos", "software", "calculos", "detalles", "adicionales"]
+    "aplica": ["combos", "obra", "software", "calculos", "detalles", "revit", "adicionales"]
   },
   {
     "id": "amor-amistad",

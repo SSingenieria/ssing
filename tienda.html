@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self'; connect-src 'self' https://ssing-obra.ssingbuildcodes.workers.dev; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda | SSING BUILD CODES SAS</title>
     <meta name="description" content="Licencias de CalculosSSING y MemoriasSSING, construcción, remodelaciones, diseño estructural, estudios de suelos y más. Arme su pedido y envíelo por WhatsApp.">
@@ -10,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 
@@ -86,6 +88,8 @@
                 <div class="field"><label for="c-ciudad">Ciudad <b>*</b></label><input id="c-ciudad" autocomplete="address-level2"></div>
                 <div class="field full"><label for="c-detalle">Detalles (opcional)</label><input id="c-detalle" placeholder="Ej. casa de 2 pisos, 120 m², lote propio"></div>
             </div>
+            <label class="terms"><input type="checkbox" id="c-terminos"><span>Acepto los <a href="legal.html#terminos" target="_blank" rel="noopener">términos</a> y la <a href="legal.html#reembolsos" target="_blank" rel="noopener">política de reembolsos y retracto</a>. <b>*</b></span></label>
+            <label class="terms"><input type="checkbox" id="c-datos"><span>Autorizo el tratamiento de mis datos según la <a href="legal.html#privacidad" target="_blank" rel="noopener">política de privacidad</a>. <b>*</b></span></label>
             <div class="form-error" id="c-error"></div>
             <button type="button" class="btn btn-whatsapp btn-block" id="enviar"><i class="fa-brands fa-whatsapp"></i> Enviar pedido por WhatsApp</button>
             <button type="button" class="btn btn-ghost btn-block" id="vaciar" style="margin-top:8px;">Vaciar pedido</button>
@@ -99,9 +103,11 @@
                 <span>&copy; <span data-anio>2026</span> SSING BUILD CODES SAS · Los precios son de referencia; el valor final se confirma con la cotización.</span>
                 <span><a href="index.html" style="color:inherit">Volver al inicio</a></span>
             </div>
+        <div class="footer-legal"><a href="legal.html#terminos">Términos y condiciones</a><a href="legal.html#privacidad">Privacidad y datos</a><a href="legal.html#cookies">Cookies</a><a href="legal.html#reembolsos">Reembolsos y retracto</a></div>
         </div>
     </footer>
 
+    <script src="js/legal.js?v=1"></script>
     <script>document.write('<script src="promociones/promociones.js?t=' + Math.floor(Date.now() / 600000) + '"><\/script>');</script>
     <script src="js/tienda.js?v=17"></script>
     <script>
@@ -211,8 +217,8 @@
 
             /* ---------- Pedido ---------- */
             let pedido = {};
-            try { pedido = JSON.parse(localStorage.getItem("ssing-pedido") || "{}"); } catch (e) {}
-            const guardar = () => { try { localStorage.setItem("ssing-pedido", JSON.stringify(pedido)); } catch (e) {} };
+            try { pedido = SSING_LEGAL.puedeGuardar() ? JSON.parse(localStorage.getItem("ssing-pedido") || "{}") : {}; } catch (e) {}
+            const guardar = () => { if (SSING_LEGAL.puedeGuardar()) { try { localStorage.setItem("ssing-pedido", JSON.stringify(pedido)); } catch (e) {} } };
             const panel = document.getElementById("pedido"), velo = document.getElementById("velo");
             const abrir = () => { panel.classList.add("open"); velo.classList.add("open"); };
             const cerrar = () => { panel.classList.remove("open"); velo.classList.remove("open"); };
@@ -289,7 +295,7 @@
             document.getElementById("vaciar").onclick = () => { pedido = {}; pintarPedido(); };
 
             try {
-                const c = JSON.parse(localStorage.getItem("ssing-cliente") || "{}");
+                const c = SSING_LEGAL.puedeGuardar() ? JSON.parse(localStorage.getItem("ssing-cliente") || "{}") : {};
                 ["nombre", "ciudad"].forEach(k => { if (c[k]) document.getElementById("c-" + k).value = c[k]; });
             } catch (e) {}
 
@@ -301,12 +307,17 @@
                 const detalle = document.getElementById("c-detalle").value.trim();
                 if (!ids.length) { err.textContent = "Agregue al menos un producto o servicio."; return; }
                 if (!nombre || !ciudad) { err.textContent = "Escriba su nombre y su ciudad."; return; }
+                if (!document.getElementById("c-terminos").checked || !document.getElementById("c-datos").checked) {
+                    err.textContent = "Para enviar el pedido debe aceptar los términos y autorizar el tratamiento de sus datos."; return;
+                }
                 err.textContent = "";
-                try { localStorage.setItem("ssing-cliente", JSON.stringify({ nombre, ciudad })); } catch (e) {}
+                if (SSING_LEGAL.puedeGuardar()) { try { localStorage.setItem("ssing-cliente", JSON.stringify({ nombre, ciudad })); } catch (e) {} }
+                SSING_LEGAL.registrar("Pedido de la tienda", { nombre, telefono: "", correo: "" });
                 const lineas = ids.map(id => { const p = P.find(x => x.id === id); return `• ${pedido[id]} × ${p.nombre} — ${precioTxt(p)}${p.unidad ? " (" + p.unidad + ")" : ""}${promoTxt(p)}`; })
                     .concat(regalosDelPedido(ids).map(n => `• 🎁 REGALO: ${n} — Gratis`));
                 const texto = ["PEDIDO TIENDA SSING", `Nombre: ${nombre}`, `Ciudad: ${ciudad}`, "", ...lineas, "",
-                    `Total estimado: ${document.getElementById("total").textContent}`, detalle ? `Detalles: ${detalle}` : ""].filter((l, i, a) => l !== "" || a[i - 1] !== "").join("\n");
+                    `Total estimado: ${document.getElementById("total").textContent}`, detalle ? `Detalles: ${detalle}` : "",
+                    "", `Términos, reembolsos y datos (versión ${SSING_LEGAL.VERSION}): ACEPTADOS`].filter((l, i, a) => l !== "" || a[i - 1] !== "").join("\n");
                 window.open(`https://wa.me/${TIENDA.whatsapp}?text=${encodeURIComponent(texto)}`, "_blank", "noopener");
             };
 
