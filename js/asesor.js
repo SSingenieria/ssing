@@ -247,11 +247,13 @@
     const historial = [];                         // para el resumen que llega a WhatsApp y para la IA
     function yo(texto) { historial.push({ yo: true, t: texto }); body.insertAdjacentHTML("beforeend", `<div class="as-msg as-yo">${esc(texto)}</div>`); bajar(); }
     function resumenChat() {
-        const preg = historial.filter(x => x.yo && !/asesor real|^men[uú]$/i.test(x.t)).map(x => "• " + x.t).slice(-15);
-        return "Hola SSING, quiero hablar con un asesor.\n" + (preg.length ? "Lo que pregunté en el chat de la página:\n" + preg.join("\n") : "");
+        // pregunta del cliente y lo que le contestó el bot o la IA (sin los botones de «asesor real» y «menú»)
+        const chat = historial.filter(x => !(x.yo && /asesor real|^men[uú]$/i.test(x.t)) && !/^(Con gusto 🙌|¡Hola! 👋 Soy el asesor)/.test(x.t))
+            .slice(-16).map(x => (x.yo ? "🙋 Cliente: " : x.ia ? "🤖 IA: " : "💬 Bot: ") + (x.yo ? x.t : x.t.slice(0, 220) + (x.t.length > 220 ? "…" : "")));
+        return "Hola SSING, quiero hablar con un asesor.\n" + (chat.length ? "Mi chat en la página:\n" + chat.join("\n") : "");
     }
-    function bot(html, botones) {
-        historial.push({ yo: false, t: html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 300) });
+    function bot(html, botones, ia) {
+        historial.push({ yo: false, ia: !!ia, t: html.replace(/<s>.*?<\/s>/g, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 600) });
         const d = document.createElement("div");
         d.className = "as-msg as-bot";
         d.innerHTML = html.trim().startsWith("<") ? html : `<p>${html}</p>`;
@@ -389,7 +391,7 @@
         } catch (e) {}
         espera.remove();
         if (texto) return bot(`<p>${esc(texto).replace(/\n+/g, "</p><p>")}</p>`,
-                              [["Hablar con un asesor real", "real"], ["Menú", "menu"]]);
+                              [["Hablar con un asesor real", "real"], ["Menú", "menu"]], true);
         bot("No le entendí bien 🤔. Escoja una opción o hable con un asesor real por WhatsApp.",
             [...MENU.slice(0, 6), ["Hablar con un asesor real", "real"]]);
     }
