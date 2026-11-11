@@ -9,11 +9,11 @@ const PROMOCIONES = [
     "id": "lanzamiento-revit",
     "activo": true,
     "titulo": "Lanzamiento SSING para Revit",
-    "mensaje": "25 % en los módulos de SSING para Revit, el Revit TODO, el Paquete BIM y Exportar a Revit.",
+    "mensaje": "25 % en los módulos de SSING para Revit, el Revit TODO (con o sin ETABS y SAP2000), el Paquete BIM y Exportar a Revit.",
     "tipo": "descuento",
     "dias": ["2026-11-15:2026-12-15"],
     "descuento": 25,
-    "aplica": ["revit", "rev-todo-anual", "rev-todo-mensual", "bim-anual", "bim-mensual", "det-revit"]
+    "aplica": ["revit", "rev-todo-anual", "rev-todo-mensual", "rev-base-anual", "rev-base-mensual", "bim-anual", "bim-mensual", "det-revit"]
   },
   {
     "id": "black-friday",

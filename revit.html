@@ -207,7 +207,7 @@
                 const T = typeof TIENDA !== "undefined" ? TIENDA : null;
                 const prod = id => (T && T.producto(id)) || {};
                 lista.innerHTML = MODULOS.map(([id, clave]) => `<label><input type="checkbox" data-clave="${clave}" data-nombre="${prod(id).nombre || clave}"><span>${prod(id).nombre || clave}</span><b>${prod(id).precio ? pesos(prod(id).precio) : ""}</b></label>`).join("");
-                const todo = prod("rev-todo-anual");
+                const todo = prod("rev-base-anual");
                 if (todo.precio) document.getElementById("precio-todo").textContent = pesos(todo.precio);
                 const casillas = [...lista.querySelectorAll("input")];
                 casillas.forEach(c => c.addEventListener("change", () => { todoChk.checked = casillas.every(x => x.checked); }));
@@ -289,5 +289,6 @@
     <script src="js/tienda.js?v=17"></script>
     <script src="js/main.js?v=7"></script>
     <script src="js/temas.js?v=7"></script>
+    <script src="js/asesor.js?v=5"></script>
 </body>
 </html>
