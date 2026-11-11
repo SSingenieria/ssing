@@ -404,6 +404,8 @@ footer { border-top: 1px solid var(--line); background: #050a0e; padding: 64px 0
 .video-frame.sin-video .video-empty { display: flex; }
 .video-frame.sin-video video { display: none; }
 .video-empty i { font-size: 2.6rem; color: var(--accent); }
+.sw-que-es h2 { font-size: 1.45rem; margin: 8px 0 12px; }
+.sw-que-es p { color: var(--soft); margin: 0 0 10px; line-height: 1.6; }
 .sw-features { margin-top: 26px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .sw-features div { padding: 16px 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); font-size: 0.9rem; color: var(--soft); display: flex; gap: 12px; }
 .sw-features i { color: var(--accent); margin-top: 4px; }
