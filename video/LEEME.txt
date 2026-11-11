@@ -2,8 +2,8 @@ VIDEO DE DEMOSTRACIÓN DE CalculosSSING (página software.html)
 ==============================================================
 
 1. Copie aquí su video con el nombre exacto:   demo.mp4
-2. (Opcional) Copie una imagen de portada:      portada.jpg
-   Es la imagen que se ve antes de darle "play".
+2. (Opcional) Copie una imagen de portada:      portada.png
+   Es la imagen que se ve mientras carga el video (el video arranca solo, sin sonido; el visitante pulsa «Activar sonido»).
 
 Recomendaciones:
 - Formato MP4 (H.264). Si lo graba con OBS o lo exporta en CapCut, elija MP4.
@@ -12,3 +12,7 @@ Recomendaciones:
   Si el video es más pesado, súbalo a YouTube y avíseme para ponerlo desde allá.
 
 Mientras no exista demo.mp4, la página muestra "Video de demostración · Muy pronto".
+
+VIDEO DE SSING PARA REVIT (página revit.html)
+==============================================
+Igual que el de arriba, con estos nombres:   revit.mp4   y (opcional)   revit-portada.png

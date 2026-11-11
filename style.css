@@ -631,3 +631,20 @@ button.enlace { background: none; border: 0; padding: 0; font: inherit; cursor: 
 #ssing-cookies button[data-si] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 .footer-legal { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; font-size: 0.8rem; padding-top: 12px; }
 .footer-legal a { color: var(--muted); }
+
+/* Video que arranca solo (sin sonido: así lo exigen los navegadores) y botón para activar el sonido */
+.btn-sonido { position: absolute; right: 14px; bottom: 58px; z-index: 2; display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line-strong); background: rgba(5, 10, 14, .78); color: #fff; font: 600 .85rem/1 inherit; cursor: pointer; backdrop-filter: blur(6px); }
+.btn-sonido:hover { background: var(--accent); color: var(--accent-ink); }
+.btn-sonido[hidden], .video-frame.sin-video .btn-sonido { display: none; }
+
+/* Módulos que pide en la solicitud de SSING para Revit */
+.modulos-pedido { display: grid; gap: 6px; margin: 4px 0 18px; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--line); background: var(--bg); }
+.modulos-pedido > strong { font-size: .88rem; margin-bottom: 2px; }
+.modulos-pedido label { display: flex; gap: 10px; align-items: flex-start; font-size: .88rem; color: var(--soft); cursor: pointer; }
+.modulos-pedido label b { margin-left: auto; white-space: nowrap; color: var(--text); font-weight: 600; }
+.modulos-pedido .todo-revit { padding-bottom: 8px; margin-bottom: 4px; border-bottom: 1px solid var(--line); color: var(--text); font-weight: 700; }
+.modulos-pedido small { color: var(--muted); font-size: .78rem; }
+
+/* Video vertical (9:16), como el de SSING para Revit */
+.video-frame.vertical { aspect-ratio: 9 / 16; max-width: 420px; max-height: 80vh; margin: 0 auto; }
+.video-frame.vertical video { object-fit: contain; }

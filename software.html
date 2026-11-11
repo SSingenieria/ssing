@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="style.css?v=9">
+    <link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
 
@@ -50,9 +50,10 @@
             <!-- Video (archivo video/demo.mp4) -->
             <div class="sw-video">
                 <div class="video-frame" id="video-frame">
-                    <video id="video" controls playsinline preload="metadata" poster="video/portada.jpg">
+                    <video id="video" controls autoplay muted loop playsinline preload="auto" poster="video/portada.png">
                         <source src="video/demo.mp4" type="video/mp4">
                     </video>
+                    <button type="button" class="btn-sonido" id="btn-sonido"><i class="fa-solid fa-volume-high"></i> Activar sonido</button>
                     <div class="video-empty">
                         <i class="fa-solid fa-circle-play"></i>
                         <strong style="color:var(--text)">Video de demostración</strong>
@@ -156,6 +157,13 @@
             const sinVideo = () => frame.classList.add("sin-video");
             video.querySelector("source").addEventListener("error", sinVideo);
             video.addEventListener("error", sinVideo);
+            // Arranca solo al abrir la página (sin sonido: los navegadores no dejan sonar un video sin un clic)
+            video.muted = true;
+            const intento = video.play();
+            if (intento && intento.catch) intento.catch(() => {});
+            const sonido = document.getElementById("btn-sonido");
+            sonido.onclick = () => { video.muted = false; video.currentTime = 0; video.play().catch(() => {}); sonido.hidden = true; };
+            video.addEventListener("volumechange", () => { sonido.hidden = !video.muted; });
 
             // Términos
             const modal = document.getElementById("modal");
