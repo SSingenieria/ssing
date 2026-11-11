@@ -115,6 +115,12 @@
                 <div class="form-error" id="error" role="alert"></div>
 
                 <div class="form-actions">
+                    <div class="row">
+                        <button type="button" class="btn btn-primary" data-descarga="build-code" disabled><i class="fa-solid fa-download"></i> Descargar SSING Build Code</button>
+                        <button type="button" class="btn btn-primary" data-descarga="revit" disabled><i class="fa-solid fa-download"></i> Descargar SSING para Revit</button>
+                    </div>
+                    <style>[data-descarga]:disabled { opacity: .45; cursor: not-allowed; filter: grayscale(.6); }</style>
+                    <p class="legal" id="descarga-estado" style="margin:0">Para descargar, primero envíe su solicitud con sus datos (botones de abajo).</p>
                     <button type="button" class="btn btn-whatsapp btn-block" data-medio="whatsapp"><i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp</button>
                     <div class="row">
                         <button type="button" class="btn btn-ghost" data-medio="correo"><i class="fa-solid fa-envelope"></i> Enviar por correo</button>
@@ -222,6 +228,28 @@
                 }
             }
 
+            // Descarga: registra quién descarga (nube SSING) y entrega un enlace que vence en 1 hora
+            const DESCARGA = "https://ssing-obra.ssingbuildcodes.workers.dev/api/descarga";
+            const estado = document.getElementById("descarga-estado");
+            const sinInstalador = () => { estado.innerHTML = `Instalador desactualizado: pídalo por <a href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hola, quiero el instalador de SSING")}" target="_blank" rel="noopener">WhatsApp (311 661 9341)</a> y se lo enviamos.`; };
+            document.querySelectorAll("[data-descarga]").forEach(b => b.addEventListener("click", async () => {
+                const d = datos();
+                if (!d) return;
+                SSING_LEGAL.registrar("Descarga de software", d);
+                estado.textContent = "Preparando la descarga…";
+                try {
+                    const r = await fetch(DESCARGA, { method: "POST", headers: { "content-type": "application/json" },
+                        body: JSON.stringify({ programa: b.dataset.descarga, acepta: true, nombre: d.nombre, correo: d.correo, telefono: d.telefono,
+                                               ciudad: d.ciudad, empresa: d.empresa, profesion: d.profesion }) });
+                    const j = await r.json().catch(() => ({}));
+                    if (j.ok && j.url) {
+                        location.href = j.url;
+                        estado.textContent = "La descarga empezó. Al abrir el programa le sale el código del equipo: envíelo por WhatsApp para activar su prueba gratis.";
+                    } else if (j.falta) sinInstalador();
+                    else estado.textContent = j.error || "No se pudo preparar la descarga. Intente de nuevo o escríbanos por WhatsApp.";
+                } catch (e) { sinInstalador(); }
+            }));
+
             document.querySelectorAll("[data-medio]").forEach(b => b.addEventListener("click", async () => {
                 const d = datos();
                 if (!d) return;
@@ -229,6 +257,8 @@
                 SSING_LEGAL.registrar("Solicitud de software", d);             // prueba de la aceptación (fecha, hora, IP)
                 const texto = mensaje(d);
                 const medio = b.dataset.medio;
+                document.querySelectorAll("[data-descarga]").forEach(x => x.disabled = false);   // ya mandó sus datos: se habilita la descarga
+                estado.textContent = "Listo: ya puede descargar el instalador.";
                 if (medio === "whatsapp") {
                     window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`, "_blank", "noopener");
                     aviso("Se abrió WhatsApp con su solicitud: solo pulse Enviar.");
